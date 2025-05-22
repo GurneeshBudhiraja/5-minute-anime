@@ -1,3 +1,14 @@
+"use client";
+
+import HomepageButton from "./components/homepage-button";
+import HomePageHeading from "./components/homepage-heading";
+
 export default function Home() {
-  return <main className="font-fun text-8xl">5 minute anime</main>;
+  return (
+    <main className="flex flex-col justify-center items-center bg-light-primary h-full font-fun p-4 sm:p-6 ">
+      <HomePageHeading />
+      {/* Button */}
+      <HomepageButton />
+    </main>
+  );
 }
