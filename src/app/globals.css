@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+:root {
+  --fun-brown-primary: #704b4a;
+  --fun-brown-light: #ba8478;
+  --light-primary: #fff7f1;
+  --light-secondary: #faeada;
+}
+
+@theme inline {
+  --color-brown-primary: var(--fun-brown-primary);
+  --color-brown-secondary: var(--fun-brown-light);
+  --color-light-primary: var(--light-primary);
+  --color-light-secondary: var(--light-secondary);
+}
+
+body {
+  @apply bg-light-primary text-brown-primary box-border p-0 m-0;
+}
