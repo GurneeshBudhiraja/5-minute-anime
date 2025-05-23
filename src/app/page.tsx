@@ -1,7 +1,9 @@
 "use client";
-
+//
+import React from "react";
 import HomepageButton from "./components/homepage-button";
 import HomePageHeading from "./components/homepage-heading";
+
 
 export default function Home() {
   return (

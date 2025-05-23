@@ -4,6 +4,7 @@
   --fun-brown-primary: #704b4a;
   --fun-brown-light: #ba8478;
   --light: #ffffff;
+  --dark: #000;
   --light-primary: #fff7f1;
   --light-secondary: #faeada;
 }
@@ -14,15 +15,24 @@
   font-family: "fun-font";
   src: url("fonts/fun-font.otf") format("opentype");
 }
+
 @theme inline {
   --color-brown-primary: var(--fun-brown-primary);
   --color-brown-secondary: var(--fun-brown-light);
   --color-light: var(--light);
+  --color-dark: var(--dark);
   --color-light-primary: var(--light-primary);
   --color-light-secondary: var(--light-secondary);
   --font-fun: "fun-font", sans-serif;
+  --shadow-story-page-card: 6px 6px 1px var(--color-dark);
 }
 
-body {
-  @apply bg-light-primary text-brown-primary box-border p-0 m-0;
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply bg-light-primary text-brown-primary box-border p-0 m-0;
+  }
 }
