@@ -1,19 +1,10 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import HomeIcon from "@/app/icons/HomeIcon";
+import Header from "@/app/components/results/Header";
 
-// Temporary dev data; replace with API response in prod
-const DEVELOPMENT_STORY_PAGES: StoryPage[] = [
-  { citations: [], image: "/testing-anime-pics/1image.png" },
-  { citations: [], image: "/testing-anime-pics/2image.png" },
-  { citations: [], image: "/testing-anime-pics/3image.png" },
-  { citations: [], image: "/testing-anime-pics/4image.png" },
-  { citations: [], image: "/testing-anime-pics/5image.png" },
-];
-
+// Results page: shows a generated “story” as a sequence of images
 export default function Results() {
   const router = useRouter();
   // Retrieves URL query parameters for topic, pages, and info
@@ -21,39 +12,87 @@ export default function Results() {
 
   // Stores the main topic/subject of the story
   const [storyTopic, setStoryTopic] = useState<string>("");
+  // Stores how many pages the user requested
+  const [storyPagesCount, setStoryPagesCount] = useState<number>(0);
   // Stores optional additional story details/context
   const [storyAdditionalInfo, setStoryAdditionalInfo] = useState<string>("");
-  // Tracks loading state while validating params
+  // Tracks initial param-parsing/loading state
   const [loading, setLoading] = useState<boolean>(true);
-  // Tracks which page of the story is currently being viewed
+  // Tracks which page index is currently being viewed (0-based)
   const [currentPage, setCurrentPage] = useState<number>(0);
-  // Holds the array of story page content (images + citations)
-  const [storyPages, setStoryPages] = useState<StoryPage[]>(
-    DEVELOPMENT_STORY_PAGES
-  );
+  // Holds our “fetched” pages (null until loaded)
+  const [storyPages, setStoryPages] = useState<(StoryPage | null)[]>([]);
+  // Which page index is in the 2s loading delay right now, or -1 if none
+  const [loadingPageIndex, setLoadingPageIndex] = useState<number>(-1);
 
+  // parse & validate URL params on mount
   useEffect(() => {
     const topic = searchParams.get("topic")?.trim();
     const pagesParam = searchParams.get("pages");
     const pages = pagesParam ? Number(pagesParam) : 0;
     const info = searchParams.get("info")?.trim();
 
-    // Redirect home if topic or pages missing/invalid
-    if (!topic || !pagesParam) {
-      router.push("/");
-      return;
-    }
-    // Enforce page count between 1 and storyPages.length
-    if (pages < 1 || pages > storyPages.length) {
+    // redirect home if missing/invalid
+    if (!topic || !pagesParam || pages < 1 || pages > 7) {
       router.push("/");
       return;
     }
 
     setStoryTopic(topic);
+    setStoryPagesCount(pages);
     if (info) setStoryAdditionalInfo(info);
     setLoading(false);
-  }, [router, searchParams, storyPages.length]);
+  }, [router, searchParams]);
 
+  // initialize the array of pages to [null, null, ...] once we know count
+  useEffect(() => {
+    setStoryPages(Array(storyPagesCount).fill(null));
+  }, [storyPagesCount]);
+
+  // load the **currently visible** page if not yet fetched
+  useEffect(() => {
+    if (storyPages.length !== storyPagesCount) return;
+    if (storyPages[currentPage] !== null) return;
+    fetchPage(currentPage);
+  }, [currentPage, storyPagesCount, storyPages]);
+
+  /**
+   * background-prefetch - the next unfetched page once current is loaded
+   */
+  useEffect(() => {
+    // wait until initial page is done
+    if (loadingPageIndex !== -1) return;
+    if (storyPages.length !== storyPagesCount) return;
+    if (storyPages[currentPage] === null) return;
+
+    const nextIndex = storyPages.findIndex((p) => p === null);
+    if (nextIndex !== currentPage + 1) return;
+    if (nextIndex !== -1) {
+      console.log("Fetching the page no", nextIndex + 1);
+      fetchPage(nextIndex);
+    }
+  }, [storyPages, loadingPageIndex, storyPagesCount, currentPage]);
+
+  // simulate prompt -> image generation with a 2s delay
+  async function fetchPage(index: number) {
+    setLoadingPageIndex(index);
+    // delay to mimic API call
+    await new Promise((res) => setTimeout(res, 2000));
+
+    setStoryPages((prev) => {
+      const copy = [...prev];
+      copy[index] = {
+        citations: [],
+        image: `/testing-anime-pics/${index + 1}image.png`,
+        prompt: `${index} image prompt`,
+      };
+      return copy;
+    });
+
+    setLoadingPageIndex(-1);
+  }
+
+  // show full-screen loading on initial param parse
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-light-primary">
@@ -63,33 +102,29 @@ export default function Results() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-light-primary font-fun scrollbar-thin">
-      {/* Header: story title and optional info */}
-      <header className="p-4 shadow-lg flex items-center gap-4">
-        <div
-          className="transition-all duration-200 hover:-rotate-12"
-          onClick={() => router.push("/")}
-        >
-          <HomeIcon className="text-dark border-2 border-brown-primary rounded-lg p-3 w-12 h-12 hover:scale-110 transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl active:scale-95" />
-        </div>
-        <h1 className="text-2xl md:text-4xl font-extrabold text-brown-primary tracking-wider md:tracking-wide hover:tracking-wider transition-all duration-300 select-none">
-          {/* TODO: this would be generated by AI */}
-          {storyTopic}
-        </h1>
-      </header>
+    <div className="flex flex-col min-h-screen bg-light-primary font-fun">
+      {/* header */}
+      <Header storyTopic={storyTopic} />
 
-      {/* Story image: fills remaining vertical space */}
-      <div className="relative flex-grow w-full max-w-md mx-auto px-5 py-2 custom-scrollbar">
-        <Image
-          src={storyPages[currentPage].image}
-          alt={`Story page ${currentPage + 1}`}
-          height={100}
-          width={500}
-          className="object-contain border-4 border-brown-primary rounded-2xl shadow-story-page-card"
-        />
+      {/* image viewer */}
+      <div className="relative flex-grow w-full max-w-md mx-auto px-4 py-2">
+        {loadingPageIndex === currentPage ? (
+          // 2s loading placeholder for the visible page
+          <div className="flex items-center justify-center h-64 text-brown-secondary">
+            Generating image…
+          </div>
+        ) : storyPages[currentPage]?.image ? (
+          <Image
+            src={storyPages[currentPage].image!}
+            alt={`Story page ${currentPage + 1}`}
+            width={600}
+            height={600}
+            className="object-contain border-4 border-brown-primary rounded-2xl shadow-story-page-card mx-auto"
+          />
+        ) : null}
       </div>
 
-      {/* Footer nav: prev/next buttons with page indicator */}
+      {/* footer with prev/next */}
       <nav className="flex items-center justify-between p-4 bg-light-secondary">
         <button
           onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
@@ -98,14 +133,19 @@ export default function Results() {
         >
           Previous
         </button>
+
         <span className="text-brown-primary">
-          {currentPage + 1} / {storyPages.length}
+          {currentPage + 1} / {storyPagesCount}
         </span>
+
         <button
           onClick={() =>
-            setCurrentPage((p) => Math.min(storyPages.length - 1, p + 1))
+            setCurrentPage((p) => Math.min(storyPagesCount - 1, p + 1))
           }
-          disabled={currentPage === storyPages.length - 1}
+          disabled={
+            currentPage === storyPagesCount - 1 ||
+            loadingPageIndex === currentPage
+          }
           className="px-6 py-2 bg-brown-primary text-light rounded-full shadow-lg hover:scale-105 disabled:opacity-50 transition"
         >
           Next
