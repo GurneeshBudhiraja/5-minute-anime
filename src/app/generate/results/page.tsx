@@ -72,15 +72,17 @@ export default function StoryResults() {
     const imagePromptResponse = await fetch("/api/v1/perplexity/image-prompt", {
       body: JSON.stringify({
         messages: newChatHistory,
-        generateImage: false,
+        generateImage: true,
         model: "imagen",
+        // TODO: uncomment in prod
+        // model: perplexityChatHistory.length === 0 ? "imagen" : "gpt-1",
       }),
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
     const { success, data: aiData } = (await imagePromptResponse.json()) as {
       success: boolean;
-      data: { aiResponse: string; citations: Citation[] };
+      data: GeneratePromptAndImageReturnType;
     };
     if (!success) {
       router.push("/generate");
@@ -88,18 +90,23 @@ export default function StoryResults() {
     }
 
     const { aiResponse, citations } = aiData;
-    console.log(aiResponse);
+    const { image: aiImage, prompt: imagePrompt } = aiResponse;
 
-    const re = /<title>([\s\S]*?)<\/title>/i;
-    const match = aiResponse.match(re);
-    const title = match ? match[1] : null;
-    setStoryDetails({
-      ...storyDetails,
-      topic: title ?? params.get("topic") ?? "",
-    });
+    // only gets and updates the title when the first message sent to the backend
+    if (perplexityChatHistory.length === 0) {
+      const re = /<title>([\s\S]*?)<\/title>/i;
+      const match = imagePrompt.match(re);
+      const title = match ? match[1] : null;
+      // update the state with new AI generated title
+      setStoryDetails({
+        ...storyDetails,
+        topic: title ?? params.get("topic") ?? "",
+      });
+    }
 
-    newChatHistory.push({ role: "assistant", content: aiResponse });
+    newChatHistory.push({ role: "assistant", content: imagePrompt });
 
+    // TODO: remove in prod
     console.log(newChatHistory);
 
     setPerplexityChatHistory(newChatHistory);
@@ -108,8 +115,8 @@ export default function StoryResults() {
       const pages = [...prev.aiGeneratedPages];
       pages[currentPageToLoad] = {
         ...pages[currentPageToLoad],
-        prompt: aiResponse,
-        image: `data:image/png;base64,${""}`,
+        prompt: imagePrompt,
+        image: `data:image/png;base64,${aiImage}`,
         loaded: true,
         citations,
       };
@@ -142,6 +149,7 @@ export default function StoryResults() {
       } as StoryPage),
     }));
     fetchStoryPage(0);
+    // eslint-disable-next-line
   }, [mounted, params, router]);
 
   if (!mounted) return null;
@@ -194,9 +202,7 @@ export default function StoryResults() {
             }));
             fetchStoryPage(currentViewPage + 1);
           }}
-          disabled={
-            currentViewPage === storyDetails.pages - 1 || !pageData?.loaded
-          }
+          disabled={currentViewPage === storyDetails.pages || !pageData?.loaded}
           className="px-4 py-2 bg-brown-primary text-light rounded-full shadow hover:bg-brown-light disabled:opacity-50 transition"
         >
           Next
