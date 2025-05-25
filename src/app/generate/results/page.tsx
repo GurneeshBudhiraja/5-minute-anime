@@ -10,7 +10,7 @@ export default function StoryResults() {
   const [mounted, setMounted] = useState<boolean>(false);
   const [storyDetails, setStoryDetails] = useState({
     topic: "",
-    pages: 5, // defaults to 5
+    pages: 5, // defaults to 6
     info: "",
   });
   const [applicationStatus, setApplicationStatus] = useState<ApplicationStatus>(
@@ -36,8 +36,6 @@ export default function StoryResults() {
       return;
     }
 
-    console.log("Making new request");
-
     // updates the loading status for the page
     setApplicationStatus((prev) => {
       const pages = [...prev.aiGeneratedPages];
@@ -58,20 +56,25 @@ export default function StoryResults() {
           params.get("info")
             ? `Additional information: ${params.get("info")}`
             : ""
-        }. Generate the single scene prompt for page ${currentPageToLoad + 1}`,
+        }. Generate the prompt for the cover page including the title`,
       });
     } else {
       newChatHistory.push({
         role: "user",
-        content: `Generate the single scene prompt for page ${
+        content: `Generate the single scene prompt for the page number ${
           currentPageToLoad + 1
-        }`,
+        } excluding the title`,
       });
     }
     setPerplexityChatHistory(newChatHistory);
 
+    // generates image prompt
     const imagePromptResponse = await fetch("/api/v1/perplexity/image-prompt", {
-      body: JSON.stringify({ messages: newChatHistory, generateImage: false }),
+      body: JSON.stringify({
+        messages: newChatHistory,
+        generateImage: false,
+        model: "imagen",
+      }),
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
@@ -85,26 +88,20 @@ export default function StoryResults() {
     }
 
     const { aiResponse, citations } = aiData;
-    const imageGenerationResponse = await fetch(
-      "/api/v1/perplexity/generate-image",
-      {
-        method: "POST",
-        body: JSON.stringify({ imagePrompt: aiResponse }),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    const { success: ok, image: base64Image } =
-      (await imageGenerationResponse.json()) as {
-        success: boolean;
-        image: string;
-      };
-    if (!ok) {
-      console.log("Returning from inside ok");
-      router.push("/generate");
-      return;
-    }
+    console.log(aiResponse);
+
+    const re = /<title>([\s\S]*?)<\/title>/i;
+    const match = aiResponse.match(re);
+    const title = match ? match[1] : null;
+    setStoryDetails({
+      ...storyDetails,
+      topic: title ?? params.get("topic") ?? "",
+    });
 
     newChatHistory.push({ role: "assistant", content: aiResponse });
+
+    console.log(newChatHistory);
+
     setPerplexityChatHistory(newChatHistory);
 
     setApplicationStatus((prev) => {
@@ -112,7 +109,7 @@ export default function StoryResults() {
       pages[currentPageToLoad] = {
         ...pages[currentPageToLoad],
         prompt: aiResponse,
-        image: `data:image/png;base64,${base64Image}`,
+        image: `data:image/png;base64,${""}`,
         loaded: true,
         citations,
       };
@@ -135,7 +132,8 @@ export default function StoryResults() {
     setStoryDetails({ topic, pages, info });
     setApplicationStatus((prev) => ({
       ...prev,
-      aiGeneratedPages: Array(pages).fill({
+      // one extra for the story cover page
+      aiGeneratedPages: Array(pages + 1).fill({
         loaded: false,
         image: "",
         citations: [],

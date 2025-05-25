@@ -28,6 +28,7 @@ interface StoryPage {
 interface PerplexityImagePromptRouteBody {
   messages: PerplexityMessage[];
   generateImage: boolean;
+  model: "gpt-1" | "imagen"
 }
 
 /** Message sender role */
@@ -139,6 +140,14 @@ type Citation = string;
  */
 interface GenerateImagePromptReturnType {
   aiResponse: string;
+  citations: Citation[]
+}
+
+interface GeneratePromptAndImageReturnType {
+  aiResponse: {
+    prompt: string;
+    image: string;
+  }
   citations: Citation[]
 }
 
