@@ -62,7 +62,7 @@ export default function HomePageHeading() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center">
       <span
         ref={numberRef}
         className="text-[10rem] sm:text-[9rem] md:text-[11rem] lg:text-[13rem] leading-none text-brown-primary select-none -mb-4
