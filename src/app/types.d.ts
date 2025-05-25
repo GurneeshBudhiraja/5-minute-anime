@@ -1,7 +1,26 @@
+/**
+ * A single story page
+ */
 interface StoryPage {
+  /**
+   * Whether the image is getting generated for the given page number
+   */
+  isLoading: boolean;
+  /**
+   * Whether the contents for that page has been loaded
+   */
   loaded: boolean;
+  /**
+   * base64 image
+   */
   image: string;
+  /**
+   * List of citations
+   */
   citations: string[];
+  /**
+   * The prompt used to generate the image
+   */
   prompt: string;
 }
 
