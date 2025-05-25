@@ -1,4 +1,4 @@
-import { generateImagePrompt } from "@/app/utils/perplexity"
+import { generateImagePrompt } from "@/app/utils/ai"
 
 
 /**
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
         }
       })
     }
-    return new Response(JSON.stringify({ success: true, message: "Hello World" }), {
+    return new Response(JSON.stringify({ success: true, data: "Hello World" }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json'

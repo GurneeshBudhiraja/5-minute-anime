@@ -1,4 +1,5 @@
 interface StoryPage {
+  loaded: boolean;
   image: string;
   citations: string[];
   prompt: string;
@@ -120,4 +121,22 @@ type Citation = string;
 interface GenerateImagePromptReturnType {
   aiResponse: string;
   citations: Citation[]
+}
+
+
+/**
+ * Type for the story details type
+ */
+interface StoryState {
+  topic: string;
+  pages: number;
+  info: string;
+}
+
+/**
+ * Type for the application status
+ */
+interface ApplicationStatus {
+  currentViewPage: number;
+  aiGeneratedPages: StoryPage[]
 }

@@ -1,156 +1,201 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "@/app/components/results/Header";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useCallback, useEffect, useState } from "react";
 
-// Results page: shows a generated “story” as a sequence of images
-export default function Results() {
+export default function StoryResults() {
   const router = useRouter();
-  // Retrieves URL query parameters for topic, pages, and info
-  const searchParams = useSearchParams();
+  const params = useSearchParams();
+  const [mounted, setMounted] = useState<boolean>(false);
+  const [storyDetails, setStoryDetails] = useState({
+    topic: "",
+    pages: 5, // defaults to 5
+    info: "",
+  });
+  const [applicationStatus, setApplicationStatus] = useState<ApplicationStatus>(
+    {
+      currentViewPage: 0,
+      aiGeneratedPages: [],
+    }
+  );
+  const [perplexityChatHistory, setPerplexityChatHistory] = useState<
+    PerplexityMessage[]
+  >([]);
 
-  // Stores the main topic/subject of the story
-  const [storyTopic, setStoryTopic] = useState<string>("");
-  // Stores how many pages the user requested
-  const [storyPagesCount, setStoryPagesCount] = useState<number>(0);
-  // Stores optional additional story details/context
-  const [storyAdditionalInfo, setStoryAdditionalInfo] = useState<string>("");
-  // Tracks initial param-parsing/loading state
-  const [loading, setLoading] = useState<boolean>(true);
-  // Tracks which page index is currently being viewed (0-based)
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  // Holds our “fetched” pages (null until loaded)
-  const [storyPages, setStoryPages] = useState<(StoryPage | null)[]>([]);
-  // Which page index is in the 2s loading delay right now, or -1 if none
-  const [loadingPageIndex, setLoadingPageIndex] = useState<number>(-1);
-
-  // parse & validate URL params on mount
-  useEffect(() => {
-    const topic = searchParams.get("topic")?.trim();
-    const pagesParam = searchParams.get("pages");
-    const pages = pagesParam ? Number(pagesParam) : 0;
-    const info = searchParams.get("info")?.trim();
-
-    // redirect home if missing/invalid
-    if (!topic || !pagesParam || pages < 1 || pages > 7) {
-      router.push("/");
+  const fetchStoryPage = async (currentPageToLoad: number) => {
+    if (currentPageToLoad > Number(params.get("pages"))) return;
+    console.log(applicationStatus.aiGeneratedPages[currentPageToLoad]);
+    if (applicationStatus.aiGeneratedPages[currentPageToLoad]?.loaded) return;
+    const newChatHistory: PerplexityMessage[] = perplexityChatHistory;
+    if (newChatHistory.length === 0) {
+      newChatHistory.push({
+        role: "user",
+        content: `Generate a story about ${params.get(
+          "topic"
+        )} that needs to be finished within ${params.get("pages")} pages. ${
+          params.get("info")
+            ? `Additional information: ${params.get("info")}`
+            : ""
+        }. Generate the single scene prompt for the page number ${
+          currentPageToLoad + 1
+        }`,
+      });
+    } else {
+      newChatHistory.push({
+        role: "user",
+        content: `Generate the single scene prompt for the page number ${
+          currentPageToLoad + 1
+        }`,
+      });
+    }
+    console.log(currentPageToLoad + 1);
+    console.log(newChatHistory);
+    console.log("generating respone for", currentPageToLoad + 1);
+    const response = await fetch("/api/v1/perplexity/image-prompt", {
+      body: JSON.stringify({
+        messages: newChatHistory,
+        generateImage: false,
+      }),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = (await response.json()) as {
+      success: boolean;
+      data: {
+        aiResponse: string;
+        citations: Citation[];
+      };
+    };
+    const { data: aiData, success } = data;
+    if (!success) {
+      console.log("Not able to generate image");
+      newChatHistory.pop();
+      router.push("/generate");
       return;
     }
-
-    setStoryTopic(topic);
-    setStoryPagesCount(pages);
-    if (info) setStoryAdditionalInfo(info);
-    setLoading(false);
-  }, [router, searchParams]);
-
-  // initialize the array of pages to [null, null, ...] once we know count
-  useEffect(() => {
-    setStoryPages(Array(storyPagesCount).fill(null));
-  }, [storyPagesCount]);
-
-  // load the **currently visible** page if not yet fetched
-  useEffect(() => {
-    if (storyPages.length !== storyPagesCount) return;
-    if (storyPages[currentPage] !== null) return;
-    fetchPage(currentPage);
-  }, [currentPage, storyPagesCount, storyPages]);
-
-  /**
-   * background-prefetch - the next unfetched page once current is loaded
-   */
-  useEffect(() => {
-    // wait until initial page is done
-    if (loadingPageIndex !== -1) return;
-    if (storyPages.length !== storyPagesCount) return;
-    if (storyPages[currentPage] === null) return;
-
-    const nextIndex = storyPages.findIndex((p) => p === null);
-    if (nextIndex !== currentPage + 1) return;
-    if (nextIndex !== -1) {
-      console.log("Fetching the page no", nextIndex + 1);
-      fetchPage(nextIndex);
-    }
-  }, [storyPages, loadingPageIndex, storyPagesCount, currentPage]);
-
-  // simulate prompt -> image generation with a 2s delay
-  async function fetchPage(index: number) {
-    setLoadingPageIndex(index);
-    // delay to mimic API call
-    await new Promise((res) => setTimeout(res, 2000));
-
-    setStoryPages((prev) => {
-      const copy = [...prev];
-      copy[index] = {
-        citations: [],
-        image: `/testing-anime-pics/${index + 1}image.png`,
-        prompt: `${index} image prompt`,
-      };
-      return copy;
+    const { aiResponse, citations } = aiData;
+    newChatHistory.push({
+      role: "assistant",
+      content: aiResponse,
     });
+    // updates the perplexity chat history
+    setPerplexityChatHistory(newChatHistory);
+    // updates the application status
+    setApplicationStatus((prev) => ({
+      ...prev,
+      aiGeneratedPages: [
+        ...prev.aiGeneratedPages.slice(0, currentPageToLoad),
+        {
+          ...prev.aiGeneratedPages[currentPageToLoad],
+          prompt: `${aiResponse}`,
+          image: `/testing-anime-pics/${currentPageToLoad + 1}image.png`,
+          loaded: true,
+          citations,
+        },
+        ...prev.aiGeneratedPages.slice(currentPageToLoad + 1),
+      ],
+    }));
+  };
 
-    setLoadingPageIndex(-1);
-  }
+  useEffect(() => {
+    if (!mounted) {
+      setMounted(true);
+      return;
+    }
+    const storyTopic = params.get("topic");
+    const totalStoryPages = params.get("pages");
+    const storyAdditionalInformation = params.get("info");
+    if (
+      !storyTopic ||
+      Number(totalStoryPages) < 5 ||
+      Number(totalStoryPages) > 7
+    ) {
+      router.push("/generate");
+      return;
+    }
+    setStoryDetails({
+      topic: storyTopic,
+      info: storyAdditionalInformation ?? "",
+      pages: Number(totalStoryPages),
+    });
+    setApplicationStatus((prev) => ({
+      ...prev,
+      // Fill the array with the empty data
+      aiGeneratedPages: Array(Number(totalStoryPages)).fill({
+        loaded: false,
+        image: "",
+        citations: [],
+        prompt: "",
+      }),
+    }));
+    fetchStoryPage(applicationStatus.currentViewPage);
+  }, [mounted, params, router]);
 
-  // show full-screen loading on initial param parse
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-light-primary">
-        Loading…
-      </div>
-    );
-  }
-
+  if (!mounted) return;
   return (
-    <div className="flex flex-col min-h-screen bg-light-primary font-fun">
-      {/* header */}
-      <Header storyTopic={storyTopic} />
-
-      {/* image viewer */}
-      <div className="relative flex-grow w-full max-w-md mx-auto px-4 py-2">
-        {loadingPageIndex === currentPage ? (
-          // 2s loading placeholder for the visible page
-          <div className="flex items-center justify-center h-64 text-brown-secondary">
-            Generating image…
-          </div>
-        ) : storyPages[currentPage]?.image ? (
+    <div className="flex gap-10">
+      {applicationStatus.aiGeneratedPages[applicationStatus.currentViewPage]
+        ?.loaded ? (
+        <div>
           <Image
-            src={storyPages[currentPage].image!}
-            alt={`Story page ${currentPage + 1}`}
-            width={600}
-            height={600}
-            className="object-contain border-4 border-brown-primary rounded-2xl shadow-story-page-card mx-auto"
+            alt={`Page ${applicationStatus.currentViewPage + 1} of ${
+              storyDetails.pages
+            }`}
+            src={
+              applicationStatus.aiGeneratedPages[
+                applicationStatus.currentViewPage
+              ].image
+            }
+            width={500}
+            height={500}
           />
-        ) : null}
+        </div>
+      ) : (
+        <>Loading...</>
+      )}
+      <button
+        onClick={() => {
+          console.log(storyDetails);
+          console.log(applicationStatus);
+        }}
+      >
+        Click
+      </button>
+      {/* Total pages */}
+      <div>
+        {applicationStatus.currentViewPage + 1}/{storyDetails.pages}
       </div>
-
-      {/* footer with prev/next */}
-      <nav className="flex items-center justify-between p-4 bg-light-secondary">
-        <button
-          onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
-          disabled={currentPage === 0}
-          className="px-6 py-2 bg-brown-primary text-light rounded-full shadow-lg hover:scale-105 disabled:opacity-50 transition"
-        >
-          Previous
-        </button>
-
-        <span className="text-brown-primary">
-          {currentPage + 1} / {storyPagesCount}
-        </span>
-
-        <button
-          onClick={() =>
-            setCurrentPage((p) => Math.min(storyPagesCount - 1, p + 1))
-          }
-          disabled={
-            currentPage === storyPagesCount - 1 ||
-            loadingPageIndex === currentPage
-          }
-          className="px-6 py-2 bg-brown-primary text-light rounded-full shadow-lg hover:scale-105 disabled:opacity-50 transition"
-        >
-          Next
-        </button>
-      </nav>
+      <button
+        disabled={applicationStatus.currentViewPage === 0}
+        className="disabled:cursor-not-allowed"
+        onClick={() => {
+          setApplicationStatus((prev) => ({
+            ...prev,
+            currentViewPage: prev.currentViewPage - 1,
+          }));
+        }}
+      >
+        Prev
+      </button>
+      <button
+        disabled={
+          applicationStatus.currentViewPage === storyDetails.pages - 1 ||
+          !applicationStatus.aiGeneratedPages[applicationStatus.currentViewPage]
+            ?.loaded
+        }
+        className="disabled:cursor-not-allowed"
+        onClick={() => {
+          setApplicationStatus((prev) => ({
+            ...prev,
+            currentViewPage: prev.currentViewPage + 1,
+          }));
+          fetchStoryPage(applicationStatus.currentViewPage + 1);
+        }}
+      >
+        Next
+      </button>
     </div>
   );
 }
