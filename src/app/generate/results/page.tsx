@@ -51,7 +51,7 @@ export default function StoryResults() {
     console.log(currentPageToLoad + 1);
     console.log(newChatHistory);
     console.log("generating respone for", currentPageToLoad + 1);
-    const response = await fetch("/api/v1/perplexity/image-prompt", {
+    const imagePromptResponse = await fetch("/api/v1/perplexity/image-prompt", {
       body: JSON.stringify({
         messages: newChatHistory,
         generateImage: false,
@@ -61,14 +61,14 @@ export default function StoryResults() {
         "Content-Type": "application/json",
       },
     });
-    const data = (await response.json()) as {
+    const imagePromptData = (await imagePromptResponse.json()) as {
       success: boolean;
       data: {
         aiResponse: string;
         citations: Citation[];
       };
     };
-    const { data: aiData, success } = data;
+    const { data: aiData, success } = imagePromptData;
     if (!success) {
       console.log("Not able to generate image");
       newChatHistory.pop();
@@ -76,6 +76,28 @@ export default function StoryResults() {
       return;
     }
     const { aiResponse, citations } = aiData;
+    console.log("Image prompt");
+    console.log(aiResponse);
+    console.log("Generating image");
+    const imageGenerationResponse = await fetch(
+      "/api/v1/perplexity/generate-image",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          imagePrompt: aiResponse,
+        }),
+      }
+    );
+    const imageGenerationData = (await imageGenerationResponse.json()) as {
+      success: boolean;
+      image: string;
+    };
+    if (!imageGenerationData.success) {
+      newChatHistory.pop();
+      router.push("/generate");
+      return;
+    }
+    const { image: base64Image } = imageGenerationData;
     newChatHistory.push({
       role: "assistant",
       content: aiResponse,
@@ -90,7 +112,7 @@ export default function StoryResults() {
         {
           ...prev.aiGeneratedPages[currentPageToLoad],
           prompt: `${aiResponse}`,
-          image: `/testing-anime-pics/${currentPageToLoad + 1}image.png`,
+          image: `data:image/png;base64,${base64Image}`,
           loaded: true,
           citations,
         },

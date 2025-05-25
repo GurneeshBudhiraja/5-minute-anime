@@ -1,5 +1,5 @@
 /**
- * Contains all the utilites related to the AI
+ * Contains all the utilites related to the AI Generation
  */
 
 import { PERPLEXITY_URI, SYSTEM_PROMPTS } from "../constants"
@@ -60,7 +60,7 @@ import OpenAI from "openai";
 
 export async function generateImageFromPrompt(imagePrompt: string) {
   try {
-    // if (!imagePrompt) throw new Error("No image prompt provided")
+    if (!imagePrompt) throw new Error("No image prompt provided")
     // const openai = new OpenAI({
     //   apiKey: process.env.NEXT_OPENAI_API
     // });
@@ -72,30 +72,50 @@ export async function generateImageFromPrompt(imagePrompt: string) {
     // });
 
     // // Save the image to a file
-    // const image_base64 = result.data[0].b64_json;
-    // const image_bytes = Buffer.from(image_base64, "base64");
-    // fs.writeFileSync(`testingImage${Date.now()}.png`, image_bytes);
+    // const imageData = result.data[0].b64_json;
+    // const image_bytes = Buffer.from(imageData, "base64");
+    // fs.writeFileSync(`testing-imagen.png`, image_bytes);
+    // return { success: true, image: imageData }
+
     // TODO: replace with OpenAI image generation model
     const ai = new GoogleGenAI({ apiKey: process.env.NEXT_GEMINI_API_KEY });
-    const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash-preview-image-generation",
-      contents: `System instructions: ${SYSTEM_PROMPTS["TEXT_TO_IMAGE_PROMPT"]}\nImage prompt: ${imagePrompt}`,
+    const response = await ai.models.generateImages({
+      model: 'imagen-3.0-generate-002',
+      prompt: `${imagePrompt}`,
       config: {
-        responseModalities: [Modality.TEXT, Modality.IMAGE],
+        numberOfImages: 1,
+        aspectRatio: "3:4",
       },
     });
-    for (const part of response.candidates[0].content.parts) {
-      // Based on the part type, either show the text or save the image
-      if (part.text) {
-        console.log(part.text);
-      } else if (part.inlineData) {
-        const imageData = part.inlineData.data as string;
-        const buffer = Buffer.from(imageData, "base64");
-        fs.writeFileSync(`testingImage${Date.now()}.png`, buffer);
-        console.log(imageData)
-        return { success: true, image: imageData }
-      }
+
+    let idx = 1;
+    for (const generatedImage of response.generatedImages) {
+      let imageData = generatedImage.image.imageBytes;
+      const buffer = Buffer.from(imageData, "base64");
+      fs.writeFileSync(`imagen-${idx}.png`, buffer);
+      idx++;
+      return { success: true, image: imageData }
     }
+
+    // const response = await ai.models.generateImages({
+    //   model: "image",
+    //   contents: `System instructions: ${SYSTEM_PROMPTS["TEXT_TO_IMAGE_PROMPT"]}\nImage prompt: ${imagePrompt}`,
+    //   config: {
+    //     responseModalities: [Modality.TEXT, Modality.IMAGE],
+    //   },
+    // });
+    // for (const part of response.candidates[0].content.parts) {
+    //   // Based on the part type, either show the text or save the image
+    //   if (part.text) {
+    //     console.log(part.text);
+    //   } else if (part.inlineData) {
+    //     const imageData = part.inlineData.data as string;
+    //     const buffer = Buffer.from(imageData, "base64");
+    //     fs.writeFileSync(`testingImage${Date.now()}.png`, buffer);
+    //     console.log(imageData)
+    //     return { success: true, image: imageData }
+    //   }
+    // }
     // let idx = 1;
     // for (const generatedImage of response.generatedImages) {
     //   let imgBytes = generatedImage.image.imageBytes;

@@ -20,6 +20,7 @@ export async function POST(request: Request) {
       // TODO: remove in prod
       console.log("Generating image prompt")
       const imagePrompt = await generateImagePrompt(messages)
+
       return new Response(JSON.stringify({ success: true, data: imagePrompt }), {
         status: 200,
         headers: {
