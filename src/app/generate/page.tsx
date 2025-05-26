@@ -74,7 +74,7 @@ export default function GeneratePage() {
           <div className="flex flex-col">
             <label
               htmlFor="pages"
-              className="mb-1 text-brown-primary font-semibold font-fredoka text-xl tracking-wide"
+              className="mb-1 text-brown-primary font-semibold font-fredoka text-lg tracking-wide"
             >
               Number of Pages (max 10)
             </label>
