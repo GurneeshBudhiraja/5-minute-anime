@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import BottomNav from "../components/BottomNav";
 import { HomeIcon } from "@heroicons/react/24/outline";
@@ -18,8 +18,19 @@ export default function ExplorePage() {
     title: "",
     data: [],
   });
+
+  useEffect(() => {
+    if (viewStory.data.length > 0 && viewStory.title) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [viewStory]);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-light-primary to-light-secondary">
+    <div
+      className={`min-h-screen bg-gradient-to-b from-light-primary to-light-secondary`}
+    >
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
         <main className="flex-1 py-8 flex flex-col">
           <header className="relative flex items-center justify-center mb-8 sm:mb-12 overflow-visible">
