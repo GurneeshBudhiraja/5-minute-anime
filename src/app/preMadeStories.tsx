@@ -1,5 +1,5 @@
 /**
- * Contains the premade stories using Perplexity API and Image generation models
+ * Contains the prompts and images for the premade stories made using Perplexity API and Image generation models
  */
 
 const PRE_MADE_STORIES: ExploreStories[] = [
@@ -327,6 +327,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
         image: "/current-affairs/scene4.png",
       },
+      // scene 5
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces 
       Scene: A hopeful, bustling street in a global city, with people from different cultures coming together to celebrate a new era of international cooperation; the mood is optimistic and uplifting.
@@ -356,10 +357,12 @@ const PRE_MADE_STORIES: ExploreStories[] = [
   {
     title: "<title>Quantum Riders</title>",
     data: [
+      // cover letter
       {
         prompt: `<title>Quantum Riders</title>. Students shrinking to the quantum scale, riding entangled photons amidst swirling particles, with superposition effects creating multiple versions of themselves in action-packed visuals - Anime style, 4K, vibrant colors, dynamic lighting.`,
         image: "/anime-physics/scene0.png",
       },
+      // scene 1
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
       Scene: A high-tech science lab shrinks to a quantum world—students float among glowing particles and entangled photon beams. Mood is wonder and excitement.  
@@ -381,8 +384,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “WHOOSH!” (as students ride photon beams)  
 
       Atmosphere: Thrilling discovery meets scientific awe—dynamic action lines and glowing particle effects fill every panel.`,
-        image: "/quantum-riders/scene1.png",
+        image: "/anime-physics/scene1.png",
       },
+      // scene 2
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, vibrant colors, dynamic lighting  
       Scene: Inside a dazzling quantum realm where Kaito and Sora ride glowing entangled photons through a maze of shimmering light paths. Mood is thrilling and energetic.  
@@ -403,8 +407,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “WHOOSH!” (as they speed through quantum pathways)  
 
       Atmosphere: High-energy adventure fused with awe-inspiring science visuals—light trails and particle effects emphasize instantaneous connections beyond normal physics boundaries.`,
-        image: "/quantum-riders/scene2.png",
+        image: "/anime-physics/scene2.png",
       },
+      // scene 3
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
       Scene: Kaito and Sora find themselves split into multiple versions—each version glows with a different color as they stand before a shimmering double slit in the quantum realm. Mood is wonder and confusion.  
@@ -425,8 +430,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “ZAP!” (as interference patterns form)  
 
       Atmosphere: Mind-bending discovery meets scientific thrill—dynamic action lines and glowing particle effects highlight every copy and their connection to the double slit experiment[1][2][3].`,
-        image: "/quantum-riders/scene3.png",
+        image: "/anime-physics/scene3.png",
       },
+      // scene 4
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
       Scene: Kaito and Sora's multiple copies converge at a glowing quantum crossroads—entangled photon beams form a Yin-Yang pattern in the air above them. Mood is awe and revelation.  
@@ -447,8 +453,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “ZING!” (along entangled photon beams)  
 
       Atmosphere: Mind-blowing scientific discovery meets anime spectacle—dynamic action lines and vibrant particle effects highlight every moment as students witness entanglement made visible for the first time[1][4].`,
-        image: "/quantum-riders/scene4.png",
+        image: "/anime-physics/scene4.png",
       },
+      // scene 5
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
       Scene: Kaito and Sora stand at the heart of a glowing quantum circuit—entangled photon beams form a dazzling network around them as Professor Yuki explains the power of quantum computing. Mood is awe and determination.  
@@ -470,8 +477,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “GLOW!” (as nodes pulse with energy)  
 
       Atmosphere: High-tech wonder meets anime action—dynamic action lines and vibrant particle effects highlight every moment as students grasp how quantum computing could change everything[1][4].`,
-        image: "/quantum-riders/scene5.png",
+        image: "/anime-physics/scene5.png",
       },
+      // scene 6
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
       Scene: Kaito and Sora return to the lab, now filled with excitement and newfound understanding of quantum physics—Professor Yuki stands proudly beside them as they gaze at a holographic display of their quantum journey. Mood is triumphant and reflective.  
@@ -496,7 +504,334 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “WHOOSH!” (as the hologram zooms in on key moments of their journey)  
 
       Atmosphere: Triumphant conclusion with a sense of limitless possibility—dynamic action lines and vibrant particle effects highlight every moment as students reflect on their adventure and look toward a quantum future.`,
-        image: "/quantum-riders/scene6.png",
+        image: "/anime-physics/scene6.png",
+      },
+    ],
+  },
+  // story 5 -
+  {
+    title: "<title>Neon Ronin</title>",
+    data: [
+      // scene-0
+      {
+        prompt: `<title>Neon Ronin</title>
+        In a cyber-feudal Japan, a neon-clad samurai stands atop a skyscraper, gazing out over a cityscape of holographic cherry blossoms and neon-lit alleys, as corporate ronin clash in the shadows below. Anime style, 4K, vibrant neon visuals.`,
+        image: "/neon-ronin/scene0.png",
+      },
+      // scene 1
+      {
+        prompt: `1. masterpiece, best quality, ultra-detailed, anime style, 4K, vibrant neon lighting  
+        Scene: Neon-lit alley in cyber-feudal Tokyo at night; holographic cherry blossoms float gently through the air amid towering skyscrapers and glowing billboards. Tension crackles in the electric atmosphere.  
+        Characters:  
+          • Akira (Neon Samurai): Sleek cybernetic armor with glowing blue accents; katana humming with energy; determined glare beneath a high-tech kabuto helmet.  
+          • Ryo (Corporate Ronin): Dark corporate suit fused with tactical gear; visor reflecting neon signs; dual pistols holstered but ready; cold and calculating expression.  
+        Panel Composition: Dynamic split-screen showing Akira stepping into the alley from one side and Ryo emerging from shadows on the other, close-ups on their eyes locking in challenge. Neon cherry blossoms swirl between them as a visual bridge across panels.  
+        Dialogue & Text:  
+          • Akira (top-left bubble): “This city's soul isn't for sale.”  
+          • Ryo (bottom-right bubble): “Your honor won't save you here.”  
+          • Narration (bottom-center box): “In Neo-Edo's underbelly, ancient codes clash with corporate greed.”  
+          • Akira (mid-panel bubble): “Then let steel decide our fate.”  
+        Sound Effects:  
+          • “SHING!” (katana unsheathing) near Akira's hand  
+        Atmosphere: Intense cyberpunk action mood infused with traditional samurai honor—vibrant neon colors contrasted against dark urban grit and flickering holograms`,
+        image: "/neon-ronin/scene1.png",
+      },
+      // scene 2
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Neon-lit alley in cyber-feudal Tokyo; holographic cherry blossoms swirl as Akira and Ryo circle each other—blades drawn and pistols ready. The air crackles with tension.  
+        Characters:  
+          • Akira (Neon Samurai): Sleek cybernetic armor with glowing blue accents; katana humming with energy; determined glare beneath a high-tech kabuto helmet.  
+          • Ryo (Corporate Ronin): Dark corporate suit fused with tactical gear; visor reflecting neon signs; dual pistols holstered but ready; cold and calculating expression.  
+
+        Panel Composition: Split-screen—left panel shows Akira lunging forward in a dynamic slash pose (close-up on eyes), right panel shows Ryo dodging backward while drawing both pistols (wide action shot). Holographic cherry blossoms drift between them as speed lines emphasize the clash.  
+
+        Dialogue & Text:  
+          • Akira: “You're just another pawn for the corporations!” (top-left bubble)  
+          • Ryo: “And you're living in the past.” (bottom-right bubble)  
+          • Akira: “My blade will cut through your lies!” (mid-left bubble)  
+          • Ryo: “Then die clinging to it.” (mid-right bubble)  
+
+        Sound Effects:  
+          • “SHING!” (katana slash near Akira's hand)  
+          • “BANG-BANG!” (pistol shots echoing from Ryo's side)  
+
+        Atmosphere: Intense cyberpunk action mood infused with traditional samurai honor—vibrant neon colors contrasted against dark urban grit and flickering holograms.`,
+        image: "/neon-ronin/scene2.png",
+      },
+      // scene 3
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Neon-lit alley in cyber-feudal Tokyo; holographic cherry blossoms swirl as Akira and Ryo clash—steel meets gunfire in a dazzling display of speed and skill. The city's neon glow reflects off wet pavement.  
+        Characters:  
+          • Akira (Neon Samurai): Cybernetic armor glowing blue under neon lights; katana raised mid-slash; determined eyes behind high-tech kabuto helmet.  
+          • Ryo (Corporate Ronin): Tactical suit sleek black with red highlights; dual pistols firing rapidly; visor flashing with data streams.  
+
+        Panel Composition: Split-screen—left panel shows Akira leaping forward with katana poised for a downward slash (close-up on gritted teeth), right panel shows Ryo dodging to the side while firing both pistols upward at Akira (wide action shot). Holographic cherry blossoms drift between them as speed lines emphasize the clash.  
+
+        Dialogue & Text:  
+          • [Akira]: “You think money can buy everything?!” (top-left bubble)  
+          • [Ryo]: “It buys survival… something you've forgotten.” (bottom-right bubble)  
+          • [Akira]: “I fight for those who can't!” (mid-left bubble)  
+          • [Ryo]: “Then die for them too.” (mid-right bubble)  
+
+        Sound Effects:  
+          • “SHING!” (katana swing near Akira's hand)  
+          • “BANG-BANG-BANG!” (rapid pistol shots echoing)  
+
+        Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement.`,
+        image: "/neon-ronin/scene3.png",
+      },
+      // scene 4
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Neon-lit alley in cyber-feudal Tokyo; holographic cherry blossoms swirl as Akira and Ryo clash—steel meets gunfire in a dazzling display of speed and skill. The city's neon glow reflects off wet pavement, casting a vibrant, dynamic atmosphere.  
+        Characters:  
+          • Akira (Neon Samurai): Cybernetic armor glowing blue under neon lights; katana raised mid-slash; determined eyes behind high-tech kabuto helmet.  
+          • Ryo (Corporate Ronin): Tactical suit sleek black with red highlights; dual pistols firing rapidly; visor flashing with data streams.  
+
+        Panel Composition: Split-screen—left panel shows Akira lunging forward, right panel shows Ryo dodging and firing. Holographic cherry blossoms drift between them.  
+
+        Dialogue & Text:  
+          • Akira: “Your bullets won't stop me!” (top-left bubble)  
+          • Ryo: “We'll see about that.” (bottom-right bubble)  
+          • Akira: “You're just a tool for the corporations!” (mid-left bubble)  
+          • Ryo: “And you're a relic of the past.” (mid-right bubble)  
+          • Narration: “In Neo-Edo, honor and greed collide.” (bottom-center box)  
+          • Akira: “I won't back down!” (top-right bubble)  
+          • Ryo: “Then fall with your honor.” (bottom-left bubble)  
+
+        Sound Effects:  
+          • “SHING!” — katana swing  
+          • “BANG-BANG-BANG!” — pistol shots  
+
+        Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement.`,
+        image: "/neon-ronin/scene4.png",
+      },
+      // scene 5
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Neon-lit alley in cyber-feudal Tokyo; holographic cherry blossoms swirl as Akira and Ryo clash—steel meets gunfire in a final, decisive showdown. The city's neon glow reflects off wet pavement, casting a vibrant, dynamic atmosphere.  
+        Characters:  
+          • Akira (Neon Samurai): Cybernetic armor glowing blue under neon lights; katana raised high; determined eyes behind high-tech kabuto helmet.  
+          • Ryo (Corporate Ronin): Tactical suit sleek black with red highlights; dual pistols firing rapidly; visor flashing with data streams.  
+
+        Panel Composition: Split-screen—left panel shows Akira lunging, right panel shows Ryo firing. Holographic cherry blossoms drift between them.  
+
+        Dialogue & Text:  
+          • Akira: “This ends now—your greed won't consume Neo-Edo!” (top-left)  
+          • Ryo: “You're just delaying the inevitable.” (bottom-right)  
+          • Akira: “I'll protect this city, no matter the cost!” (mid-left)  
+          • Ryo: “Then let's see who pays the price.” (mid-right)  
+          • Narration: “In Neo-Edo, honor and greed collide in a final stand.” (bottom-center)  
+          • Akira: “For the people, I won't back down!” (top-right)  
+          • Ryo: “And for my family, I won't lose.” (bottom-left)  
+
+        Sound Effects:  
+          • “SHING!” — katana swing  
+          • “BANG-BANG-BANG!” — pistol shots  
+
+        Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement. The final confrontation unfolds with dramatic tension, setting the stage for a climactic conclusion.`,
+        image: "/neon-ronin/scene5.png",
+      },
+    ],
+  },
+
+  // story - perplexity rise
+  {
+    title: "<title>The Rise of Perplexity AI</title>",
+    data: [
+      // scene 0
+      {
+        prompt: `<title>The Rise of Perplexity AI</title>  
+        Black pencil sketch style • Dynamic, energetic composition • Perplexity AI logo prominently featured in authentic form • Four founders depicted as spirited anime characters brainstorming around a glowing futuristic AI core • Background hints at digital data streams and cityscape skyline symbolizing innovation and growth • Anime style, 4K, dramatic shading and contrast`,
+        image: "/perplexity-rise/scene0.png",
+      },
+      // scene 1
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: A bustling San Francisco tech office in August 2022—late night energy with glowing monitors and whiteboards covered in code sketches. The mood is electric with excitement and determination.  
+        Characters:  
+        • Aravind Srinivas (CEO): Young genius vibe, messy hair under a hoodie, intense eyes behind glasses—leaning over a laptop with a determined grin.  
+        • Denis Yarats (CTO): Taller than the rest, calm but focused expression; dressed in a casual t-shirt and jeans—arms crossed as he watches the screen.  
+        • Johnny Ho (Chief Strategy Officer): Energetic posture standing up from his chair; wears a graphic tee and headphones around his neck—grinning confidently.  
+        • Andy Konwinski (President/Board Member): Relaxed but sharp look; button-up shirt sleeves rolled up—smirking as he points at the whiteboard.
+
+        Panel Composition: Split-screen layout—close-up of Aravind's face on left (determined), wide shot of all four founders gathered around their workstations on right; action lines radiating from their huddle.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “We're building something that changes how people search… forever!” (top-left bubble)  
+        • Denis Yarats: “If we get this right… it'll be like ChatGPT and Wikipedia had a baby.” (bottom-right bubble)  
+        • Johnny Ho: “Let's make sure every answer comes with proof! No more guessing games!” (mid-panel bubble)  
+        • Andy Konwinski: “And let's keep it open for everyone—no paywalls or hidden agendas.” (top-right bubble)
+
+        Sound Effects:  
+        • “CLACK-CLACK!” (keyboard typing fast)  
+        • “WHOOSH!” (data streams flowing across screens)
+
+        Atmosphere: High-energy shonen startup spirit with speed lines highlighting movement and innovation[1][2][5].`,
+        image: "/perplexity-rise/scene1.png",
+      },
+      // scene 2
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: The same San Francisco tech office a few months later—now with more monitors and a whiteboard covered in new diagrams and code snippets. The mood is focused but hopeful as the team prepares for their public launch.  
+        Characters:  
+        • Aravind Srinivas (CEO): Still in hoodie but now with a confident smirk; pointing at a roadmap on the screen.  
+        • Denis Yarats (CTO): Leaning back in his chair with arms crossed; calm but attentive expression.  
+        • Johnny Ho (Chief Strategy Officer): Standing up energetically; gesturing toward the whiteboard with excitement.  
+        • Andy Konwinski (President/Board Member): Sitting on the edge of a desk; thoughtful look as he reviews notes.
+
+        Panel Composition: Split-screen—left side shows close-up of Aravind's determined face and hand pointing at roadmap; right side is wide shot of all four founders gathered around screens and whiteboard.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “We're launching next week! Are we ready to change how people search?” (top-left bubble)  
+        • Denis Yarats: “The model's stable… but we need to double-check our citations.” (bottom-right bubble)  
+        • Johnny Ho: “Let's make sure every answer is bulletproof! No room for errors!” (mid-panel bubble)  
+        • Andy Konwinski: “And let's keep it open—no paywalls means everyone gets access.” (top-right bubble)
+
+        Sound Effects:  
+        • “CLICK-CLACK!” (keyboards typing fast)  
+        • “WHOOSH!” (data streams flowing across screens)
+
+        Atmosphere: High-energy startup spirit with speed lines highlighting movement and innovation[2][5].`,
+        image: "/perplexity-rise/scene2.png",
+      },
+      // scene 3
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: December 7, 2022, at the Perplexity AI headquarters in San Francisco—exciting launch day atmosphere with balloons and confetti. The mood is celebratory as the team prepares to unveil their flagship search engine to the world.  
+        Characters:  
+        • Aravind Srinivas (CEO): Wearing a bright smile and a suit; holding a microphone to address the crowd.  
+        • Denis Yarats (CTO): Standing confidently with arms crossed; observing the launch preparations.  
+        • Johnny Ho (Chief Strategy Officer): Energetically high-fiving colleagues; wearing a Perplexity AI t-shirt.  
+        • Andy Konwinski (President/Board Member): Smiling warmly as he shakes hands with investors; dressed in a formal suit.
+
+        Panel Composition: Split-screen layout—left side shows a close-up of Aravind's face as he begins his speech; right side is a wide shot of the launch event with balloons and confetti filling the room.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “Today, we revolutionize how you search the internet—Welcome to Perplexity AI!” (top-left bubble)  
+        • Denis Yarats: “Our model is ready to provide answers with real-time citations. Let's change the game!” (bottom-right bubble)  
+        • Johnny Ho: “We're not just a search engine; we're your knowledge partner!” (mid-panel bubble)  
+        • Andy Konwinski: “And we're committed to keeping it free and open for everyone!” (top-right bubble)
+
+        Sound Effects:  
+        • “POP-POP!” (balloons popping)  
+        • “CHEERS!” (crowd cheering)
+
+        Atmosphere: Vibrant, celebratory mood with confetti and balloons, capturing the excitement of a new era in search technology[1][2].`,
+        image: "/perplexity-rise/scene3.png",
+      },
+      // scene 4
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Early 2025 in Perplexity AI's sleek new headquarters—bright and modern with large windows overlooking San Francisco. The atmosphere is a mix of intense focus and quiet pride as the team reviews soaring user stats and revenue growth on giant digital screens.  
+        Characters:  
+        • Aravind Srinivas (CEO): Standing confidently with arms crossed; sharp business casual attire; eyes gleaming with determination.  
+        • Denis Yarats (CTO): Sitting at a console analyzing data streams; calm but focused expression.  
+        • Johnny Ho (Chief Strategy Officer): Pointing excitedly at a graph showing exponential user growth; casual shirt and jeans.  
+        • Andy Konwinski (President/Board Member): Holding a tablet displaying funding news; smiling knowingly.
+
+        Panel Composition: Wide shot capturing the entire team gathered around futuristic holographic displays showing key metrics like “22 million active users,” “$80 million revenue run rate,” and “$18 billion valuation.” Close-up inset panels highlight each founder's determined face.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “From zero to millions of users in just two years—we're rewriting the rules!” (top-left bubble)  
+        • Denis Yarats: “Our tech handled over 400 million queries last month alone.” (bottom-right bubble)  
+        • Johnny Ho: “And our premium subscriptions are skyrocketing—$100 million projected this year!” (mid-panel bubble)  
+        • Andy Konwinski: “Investors believe in us—$915 million raised so far! The future is ours.” (top-right bubble)
+
+        Sound Effects:  
+        • “BEEP-BEEP!” (data alerts on screens)  
+        • “WHOOSH!” (holographic graphs animating)
+
+        Atmosphere: Triumphant yet forward-looking mood with dynamic speed lines emphasizing rapid growth and innovation[1][2][3].`,
+        image: "/perplexity-rise/scene4.png",
+      },
+      // scene 5
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Perplexity AI's San Francisco office in spring 2025—team huddle around a sleek conference table with laptops and holographic projections of global user data. The mood is electric with excitement and a hint of pressure as they discuss new partnerships and product launches.  
+        Characters:  
+        • Aravind Srinivas (CEO): Leaning forward on the table; sharp business casual look; eyes gleaming with determination.  
+        • Denis Yarats (CTO): Sitting back in his chair; calm but focused expression; arms crossed.  
+        • Johnny Ho (Chief Strategy Officer): Standing up energetically; pointing at a projection showing new partnership logos—PayPal and Captiv8 highlighted.  
+        • Andy Konwinski (President/Board Member): Smiling confidently as he reviews notes on his tablet.
+
+        Panel Composition: Split-screen layout—left side shows close-up of Aravind's determined face and hand gesturing toward the team; right side is wide shot of all four founders gathered around the glowing holographic display.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “With PayPal onboard for payments and Captiv8 for influencer marketing… we're unstoppable!” (top-left bubble)  
+        • Denis Yarats: “Our voice mode launch is already trending—users love hands-free search!” (bottom-right bubble) [5]  
+        • Johnny Ho: “And our agentic browser Comet? Tech reviewers are calling it the future of browsing!'” (mid-panel bubble) [5]  
+        • Andy Konwinski: “We've got offices in SF and NYC now…but this is just the beginning!” (top-right bubble) [3][6]
+
+        Sound Effects:  
+        • “BEEP-BEEP!” (data alerts on screens)  
+        • “WHOOSH!” (holographic graphs animating)
+
+        Atmosphere: High-energy startup spirit with speed lines highlighting rapid growth and innovation[2][3][5].`,
+        image: "/perplexity-rise/scene5.png",
+      },
+      // scene 6
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Perplexity AI's San Francisco headquarters in late spring 2025—exciting atmosphere with balloons and confetti as the team celebrates reaching a new milestone: surpassing 20 million active users. The mood is celebratory and optimistic about the future.  
+        Characters:  
+        • Aravind Srinivas (CEO): Wearing a bright smile and a suit; holding a microphone to address the team.  
+        • Denis Yarats (CTO): Standing confidently with arms crossed; observing the celebration.  
+        • Johnny Ho (Chief Strategy Officer): Energetically high-fiving colleagues; wearing a Perplexity AI t-shirt.  
+        • Andy Konwinski (President/Board Member): Smiling warmly as he shakes hands with team members; dressed in a formal suit.
+
+        Panel Composition: Split-screen layout—left side shows a close-up of Aravind's face as he begins his speech; right side is a wide shot of the celebration with balloons and confetti filling the room.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “Today, we celebrate not just our growth but our mission to make knowledge accessible to everyone!” (top-left bubble)  
+        • Denis Yarats: “We're not just a search engine; we're the bridge between information and understanding.” (bottom-right bubble)  
+        • Johnny Ho: “And we're just getting started—With new partnerships and features, the sky's the limit!” (mid-panel bubble)  
+        • Andy Konwinski: “Let's keep pushing the boundaries of what AI can do for humanity.” (top-right bubble)
+
+        Sound Effects:  
+        • “POP-POP!” (balloons popping)  
+        • “CHEERS!” (team cheering)
+
+        Atmosphere: Vibrant, celebratory mood with confetti and balloons, capturing the excitement of achieving a new milestone in the AI search landscape[1][2].`,
+        image: "/perplexity-rise/scene6.png",
+      },
+      // scene 7
+      {
+        prompt: `text  
+        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+        Scene: Perplexity AI's San Francisco headquarters rooftop at sunset—panoramic city view behind the team as they reflect on their journey and look toward the future. The mood is triumphant yet thoughtful.  
+        Characters:  
+        • Aravind Srinivas (CEO): Leaning on the railing with a confident smile; sharp business casual attire; eyes gleaming with determination.  
+        • Denis Yarats (CTO): Standing beside him with arms crossed; calm but proud expression.  
+        • Johnny Ho (Chief Strategy Officer): Sitting on a bench nearby; energetic posture and bright grin.  
+        • Andy Konwinski (President/Board Member): Hands in pockets; relaxed but visionary look.
+
+        Panel Composition: Split-screen—left side shows close-up of Aravind's determined face and hand gesturing toward the cityscape; right side is wide shot of all four founders together on the rooftop.
+
+        Dialogue & Text:  
+        • Aravind Srinivas: “We started with just an idea… now we're changing how millions search for knowledge!” (top-left bubble) [1][2]  
+        • Denis Yarats: “Our tech handles billions of queries every year—and we keep raising the bar.” (bottom-right bubble) [1][5]  
+        • Johnny Ho: “With new features like voice mode and Comet browser… there's no limit to what we can do next!” (mid-panel bubble) [5]  
+        • Andy Konwinski: “Let's keep building tools that make information open and accessible for everyone.” (top-right bubble) [2]
+
+        Sound Effects:  
+        • “WHOOSH!” (wind blowing across rooftop)  
+        • “CHEERS!” (distant celebration from office below)
+
+        Atmosphere: Inspiring shonen finale mood with golden sunset light and speed lines highlighting limitless potential[1][2][5].`,
+        image: "/perplexity-rise/scene7.png",
       },
     ],
   },
