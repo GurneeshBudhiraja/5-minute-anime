@@ -20,9 +20,12 @@ export async function POST(request: Request) {
     if (typeof generateImage !== "boolean") throw new Error("`generateImage` should be of type boolean ")
     if (typeof (generateImage) !== "boolean") throw new Error("`generateImage` should be of type boolean ")
 
+
     // validates the `model`
     if (!model) throw new Error("`model` missing")
     if (model !== "imagen" && model !== "gpt-1") throw new Error("`model` should be either `imagen` or `gpt-1`")
+
+
 
     // gets the image prompt from the Perplexity model
     console.log("Generating the image prompt using Perplexity AI")

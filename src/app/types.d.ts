@@ -166,6 +166,7 @@ interface StoryState {
  */
 interface ApplicationStatus {
   currentViewPage: number;
+  aiGeneratedTitle: string;
   aiGeneratedPages: StoryPage[]
 }
 

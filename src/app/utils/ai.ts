@@ -62,6 +62,7 @@ export async function generateImagePrompt(messages: PerplexityMessage[]): Promis
 
 export async function generateImageFromPrompt(imagePrompt: string, model: "imagen" | "gpt-1") {
   try {
+    console.log("Model used for image generation:", model)
     if (model === "gpt-1") {
       if (!imagePrompt) throw new Error("No image prompt provided")
       const openai = new OpenAI({
@@ -71,7 +72,7 @@ export async function generateImageFromPrompt(imagePrompt: string, model: "image
         model: "gpt-image-1",
         quality: "high",
         prompt: `${SYSTEM_PROMPTS["TEXT_TO_IMAGE_PROMPT"]}\nImage prompt is: ${imagePrompt}`,
-        size: "1024x1536"
+        size: "1024x1536",
       });
 
       const imageData = result.data![0].b64_json as string
