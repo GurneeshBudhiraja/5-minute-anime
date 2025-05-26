@@ -11,8 +11,13 @@ import ViewStory from "../components/ViewStory";
 
 export default function ExplorePage() {
   const router = useRouter();
-  const [viewStory, setViewStory] = useState<ExploreStoriesData[]>([]);
-
+  const [viewStory, setViewStory] = useState<{
+    title: string;
+    data: ExploreStoriesData[];
+  }>({
+    title: "",
+    data: [],
+  });
   return (
     <div className="min-h-screen bg-gradient-to-b from-light-primary to-light-secondary">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
@@ -31,9 +36,9 @@ export default function ExplorePage() {
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-24">
-            {viewStory.length > 0 && (
+            {viewStory.data.length > 0 && (
               <ViewStory
-                key={viewStory.length} // force re-initialize index on open
+                key={viewStory.data.length}
                 setViewStory={setViewStory}
                 viewStory={viewStory}
               />
@@ -45,7 +50,10 @@ export default function ExplorePage() {
                 onClick={() => {
                   // open full set of pages without mutating original
                   const pages = PRE_MADE_STORIES[index].data.slice();
-                  setViewStory(pages);
+                  setViewStory({
+                    title: PRE_MADE_STORIES[index].title,
+                    data: pages,
+                  });
                 }}
               >
                 <div className="relative w-full h-72 overflow-hidden">

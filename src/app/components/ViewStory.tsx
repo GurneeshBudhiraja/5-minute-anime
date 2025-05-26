@@ -13,8 +13,16 @@ import {
 import Image from "next/image";
 
 interface ViewStoryProps {
-  viewStory: { prompt: string; image: string }[];
-  setViewStory: Dispatch<SetStateAction<{ prompt: string; image: string }[]>>;
+  viewStory: {
+    title: string;
+    data: ExploreStoriesData[];
+  };
+  setViewStory: Dispatch<
+    SetStateAction<{
+      title: string;
+      data: ExploreStoriesData[];
+    }>
+  >;
 }
 
 function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
@@ -32,11 +40,13 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
   };
 
   useEffect(() => {
+    console.log(viewStory.title);
     const container = containerRef.current;
     if (!container) return;
 
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line
   }, []);
 
   const handlePrev = () => {
@@ -54,7 +64,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
     const container = containerRef.current;
     if (!container) return;
 
-    const nextIndex = Math.min(currentIndex + 1, viewStory.length - 1);
+    const nextIndex = Math.min(currentIndex + 1, viewStory.data.length - 1);
     container.scrollTo({
       left: nextIndex * container.clientWidth,
       behavior: "smooth",
@@ -67,11 +77,17 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
       <div className="relative max-w-xl w-full mx-auto">
         {/* Close Button */}
         <button
-          onClick={() => setViewStory([])}
+          onClick={() =>
+            setViewStory({
+              data: [],
+              title: "",
+            })
+          }
           className="absolute -top-2 -right-2 p-1 sm:p-2 bg-light-secondary rounded-full shadow-lg hover:bg-light-primary transition z-30"
         >
           <XCircleIcon className="h-5 w-5 sm:h-6 sm:w-6 text-brown-primary" />
         </button>
+
         <div
           ref={containerRef}
           className="relative w-full h-[80vh] md:h-[90vh] bg-black/50 backdrop-blur-2xl rounded-xl overflow-x-auto flex snap-x snap-mandatory border-4 border-brown-secondary md:shadow-view-story-card  md:shadow-light/20"
@@ -82,7 +98,13 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
             scrollbarWidth: "none",
           }}
         >
-          {viewStory.map((item, idx) => (
+          {/* story title */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-4 left-4 bg-black/50 px-3 py-1 rounded text-white text-sm sm:text-base font-bold z-50">
+              {viewStory.title.replace(/<\/?title>/g, "")}
+            </div>
+          </div>
+          {viewStory.data.map((item, idx) => (
             <div
               key={idx}
               className="snap-center inline-block w-full h-full flex-shrink-0 relative mx-3"
@@ -101,15 +123,15 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
         <button
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-lg hover:bg-black/60 transition disabled:opacity-30 z-10"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/60 transition disabled:opacity-30 z-10 border border-light/30"
         >
           <ChevronLeftIcon className="h-6 w-6 text-white" />
         </button>
         {/* Next button */}
         <button
           onClick={handleNext}
-          disabled={currentIndex === viewStory.length - 1}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-lg hover:bg-black/60 transition disabled:opacity-30 z-10"
+          disabled={currentIndex === viewStory.data.length - 1}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/60 transition disabled:opacity-30 z-10 border border-light/30"
         >
           <ChevronRightIcon className="h-6 w-6 text-white" />
         </button>
