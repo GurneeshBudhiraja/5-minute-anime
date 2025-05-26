@@ -7,6 +7,7 @@
   --dark: #000;
   --light-primary: #fff7f1;
   --light-secondary: #faeada;
+  --primary-blue: #22b5ca;
 }
 /*
   Custom font from https://www.fontspace.com/sunny-spells-font-f68393
@@ -22,14 +23,18 @@
 }
 
 @theme inline {
+  /* color */
   --color-brown-primary: var(--fun-brown-primary);
   --color-brown-secondary: var(--fun-brown-light);
   --color-light: var(--light);
   --color-dark: var(--dark);
   --color-light-primary: var(--light-primary);
   --color-light-secondary: var(--light-secondary);
+  --color-primary-blue: var(--primary-blue);
+  /* fonts */
   --font-fun: "fun-font", sans-serif;
   --font-fredoka: "fredoka", sans-serif;
+  /* shadow */
   --shadow-story-page-card: 6px 6px 1px var(--color-dark);
   --shadow-view-story-card: 1px 1px 2000px;
 }
@@ -42,4 +47,19 @@
   body {
     @apply bg-light-primary text-brown-primary box-border p-0 m-0;
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }

@@ -21,10 +21,10 @@ export default function GeneratePage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-light-primary font-fun p-6 select-none">
+    <main className="min-h-screen flex md:items-center justify-center bg-light-primary font-fun p-6 select-none">
       <form
         onSubmit={handleSubmit}
-        className="relative max-w-xl w-full bg-white p-10 rounded-3xl shadow-2xl flex flex-col gap-8 overflow-hidden border border-brown-primary/85"
+        className="relative max-w-xl w-full bg-white p-10 rounded-3xl shadow-2xl flex flex-col gap-5  md:gap-8 overflow-hidden border border-brown-primary/85 h-fit"
       >
         <div className="absolute -top-16 -left-16 w-40 h-40 bg-pink-300 rounded-full opacity-20"></div>
         <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-brown-secondary rounded-full opacity-10"></div>
@@ -124,9 +124,9 @@ export default function GeneratePage() {
         {/* Submit button */}
         <button
           type="submit"
-          className="mt-6 w-full py-4 bg-brown-primary text-white font-bold rounded-full hover:scale-105 transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-brown-secondary focus:ring-opacity-50"
+          className="mt-4 md:mt-6 w-full py-4 bg-brown-primary text-white font-bold rounded-full hover:scale-105 transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-brown-secondary focus:ring-opacity-50 tracking-widest font-fredoka "
         >
-          Generate Anime
+          Generate
         </button>
       </form>
     </main>

@@ -41,8 +41,8 @@ export default function ExplorePage() {
             >
               <HomeIcon className="h-4 w-4 sm:h-6 md:w-6 text-brown-primary" />
             </button>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-wider md:tracking-wide text-brown-primary text-center mb-0 font-fredoka">
-              Storybook Gallery
+            <h1 className="text-xl sm:text-4xl font-semibold tracking-wider md:tracking-wide text-brown-primary text-center mb-0 font-fredoka whitespace-nowrap">
+              Explore Pre-Made Adventures
             </h1>
           </header>
 
@@ -73,6 +73,7 @@ export default function ExplorePage() {
                     alt={story.title}
                     fill
                     className="object-cover transform transition-transform duration-100 w-full"
+                    priority
                   />
                 </div>
                 <div className="absolute inset-0 group-hover:bg-gradient-to-t from-dark/20 via-dark/10 to-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:rotate-1 transform" />{" "}
