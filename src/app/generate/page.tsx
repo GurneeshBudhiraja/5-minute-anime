@@ -20,64 +20,80 @@ export default function GeneratePage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-light-primary font-fun p-4">
+    <main className="min-h-screen flex items-center justify-center bg-light-primary font-fun p-6">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg w-full bg-light-secondary p-8 rounded-2xl shadow-lg flex flex-col gap-6"
+        className="relative max-w-xl w-full bg-white p-10 rounded-3xl shadow-2xl flex flex-col gap-8 overflow-hidden border border-brown-primary/85"
       >
+        <div className="absolute -top-16 -left-16 w-40 h-40 bg-pink-300 rounded-full opacity-20"></div>
+        <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-brown-secondary rounded-full opacity-10"></div>
+
         {/* Page heading */}
-        <h1 className="text-3xl md:text-4xl text-brown-primary font-extrabold text-center">
-          Your Anime Preferences
+        <h1 className="text-2xl md:text-4xl text-brown-primary font-extrabold text-center uppercase tracking-wider whitespace-nowrap">
+          Your Story Preferences
         </h1>
 
-        {/* Topic input */}
-        <div className="flex flex-col">
-          <label htmlFor="topic" className="mb-2 text-brown-primary">
-            Topic
-          </label>
-          <input
-            id="topic"
-            type="text"
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-            placeholder="e.g. The moon landing"
-            className="
-              w-full p-3 rounded-lg
-              border border-brown-primary
-              bg-light-primary text-brown-primary
-              focus:outline-none focus:ring-2 focus:ring-brown-secondary
-            "
-            required
-          />
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Topic input */}
+          <div className="flex flex-col">
+            <label
+              htmlFor="topic"
+              className="mb-1 text-brown-primary font-semibold font-fredoka text-xl tracking-wide"
+            >
+              Topic
+            </label>
+            <input
+              id="topic"
+              type="text"
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+              placeholder="e.g. The moon landing"
+              className="
+                w-full p-3 rounded-lg
+                border border-brown-primary
+                bg-light-primary text-brown-primary
+                placeholder:text-brown-secondary
+                text-lg tracking-wide
+                focus:outline-none focus:ring-2 focus:ring-brown-secondary
+              "
+              required
+            />
+          </div>
 
-        {/* Number of pages */}
-        <div className="flex flex-col">
-          <label htmlFor="pages" className="mb-2 text-brown-primary">
-            Number of Pages (max 10)
-          </label>
-          <input
-            id="pages"
-            type="number"
-            value={pages}
-            onChange={(e) =>
-              setPages(Math.min(10, Math.max(1, +e.target.value)))
-            }
-            min={5}
-            max={10}
-            className="
-              w-32 p-3 rounded-lg
-              border border-brown-primary
-              bg-light-primary text-brown-primary
-              focus:outline-none focus:ring-2 focus:ring-brown-secondary
-            "
-            required
-          />
+          {/* Number of pages */}
+          <div className="flex flex-col">
+            <label
+              htmlFor="pages"
+              className="mb-1 text-brown-primary font-semibold font-fredoka text-xl tracking-wide"
+            >
+              Number of Pages (max 10)
+            </label>
+            <input
+              id="pages"
+              type="number"
+              value={pages}
+              onChange={(e) =>
+                setPages(Math.min(10, Math.max(1, +e.target.value)))
+              }
+              min={5}
+              max={10}
+              className="w-full p-3 rounded-lg
+                border border-brown-primary
+                bg-light-primary text-brown-primary
+                placeholder:text-brown-secondary
+                text-lg tracking-wide
+                focus:outline-none focus:ring-2 focus:ring-brown-secondary"
+              required
+            />
+          </div>
         </div>
 
         {/* Additional info */}
         <div className="flex flex-col">
-          <label htmlFor="info" className="mb-2 text-brown-primary">
+          <label
+            htmlFor="info"
+            className="mb-1 text-brown-primary font-semibold font-fredoka text-xl tracking-wide"
+          >
             Additional Info
           </label>
           <textarea
@@ -86,27 +102,19 @@ export default function GeneratePage() {
             onChange={(e) => setInfo(e.target.value)}
             placeholder="Any extra details or instructions..."
             rows={4}
-            className="
-              w-full p-3 rounded-lg
-              border border-brown-primary
-              bg-light-primary text-brown-primary
-              focus:outline-none focus:ring-2 focus:ring-brown-secondary
-            "
+            className="w-full p-3 rounded-lg
+                border border-brown-primary
+                bg-light-primary text-brown-primary
+                placeholder:text-brown-secondary
+                text-lg tracking-wide
+                focus:outline-none focus:ring-2 focus:ring-brown-secondary resize-none"
           />
         </div>
 
         {/* Submit button */}
         <button
           type="submit"
-          className="
-            mt-4
-            w-full py-3
-            bg-brown-primary text-light
-            rounded-full
-            shadow-lg active:shadow-none active:translate-y-1
-            hover:scale-105 transition
-            focus:outline-none focus:ring-2 focus:ring-brown-secondary focus:ring-opacity-50
-          "
+          className="mt-6 w-full py-4 bg-brown-primary text-white font-bold rounded-full hover:scale-105 transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-brown-secondary focus:ring-opacity-50"
         >
           Generate Anime
         </button>
