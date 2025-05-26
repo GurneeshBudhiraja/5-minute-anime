@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { HomeIcon } from "@heroicons/react/24/outline";
 
 export default function GeneratePage() {
   const router = useRouter();
@@ -20,13 +21,22 @@ export default function GeneratePage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-light-primary font-fun p-6">
+    <main className="min-h-screen flex items-center justify-center bg-light-primary font-fun p-6 select-none">
       <form
         onSubmit={handleSubmit}
         className="relative max-w-xl w-full bg-white p-10 rounded-3xl shadow-2xl flex flex-col gap-8 overflow-hidden border border-brown-primary/85"
       >
         <div className="absolute -top-16 -left-16 w-40 h-40 bg-pink-300 rounded-full opacity-20"></div>
         <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-brown-secondary rounded-full opacity-10"></div>
+
+        {/* Home button */}
+        <button
+          onClick={() => router.push("/")}
+          className="absolute top-2 left-2 md:top-3 md:left-3 p-2 bg-light rounded-full shadow-md hover:opacity-80 cursor-pointer transition border border-brown-primary"
+          aria-label="Home"
+        >
+          <HomeIcon className="w-6 h-6" color="#704b4a" />
+        </button>
 
         {/* Page heading */}
         <h1 className="text-2xl md:text-4xl text-brown-primary font-extrabold text-center uppercase tracking-wider whitespace-nowrap">
