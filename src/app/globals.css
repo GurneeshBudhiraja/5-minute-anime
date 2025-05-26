@@ -16,6 +16,11 @@
   src: url("fonts/fun-font.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "fredoka";
+  src: url("fonts/Fredoka/Fredoka-VariableFont_wdth\,wght.ttf");
+}
+
 @theme inline {
   --color-brown-primary: var(--fun-brown-primary);
   --color-brown-secondary: var(--fun-brown-light);
@@ -24,7 +29,9 @@
   --color-light-primary: var(--light-primary);
   --color-light-secondary: var(--light-secondary);
   --font-fun: "fun-font", sans-serif;
+  --font-fredoka: "fredoka", sans-serif;
   --shadow-story-page-card: 6px 6px 1px var(--color-dark);
+  --shadow-view-story-card: 1px 1px 2000px;
 }
 
 @layer base {

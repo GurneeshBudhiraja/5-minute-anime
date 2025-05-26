@@ -168,3 +168,19 @@ interface ApplicationStatus {
   currentViewPage: number;
   aiGeneratedPages: StoryPage[]
 }
+
+/**
+ * Explore stories data
+ */
+interface ExploreStoriesData {
+  prompt: string;
+  image: string;
+}
+
+/**
+ * Premade stories to explore
+ */
+interface ExploreStories {
+  title: string;
+  data: ExploreStoriesData[]
+}

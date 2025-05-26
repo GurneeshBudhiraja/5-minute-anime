@@ -68,7 +68,7 @@ export default function StoryResults() {
     }
     setPerplexityChatHistory(newChatHistory);
 
-    // generates image prompt
+    // generate the prompt and the image
     const imagePromptResponse = await fetch("/api/v1/perplexity/image-prompt", {
       body: JSON.stringify({
         messages: newChatHistory,
