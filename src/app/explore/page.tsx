@@ -21,9 +21,9 @@ export default function ExplorePage() {
 
   useEffect(() => {
     if (viewStory.data.length > 0 && viewStory.title) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
   }, [viewStory]);
 
@@ -57,7 +57,7 @@ export default function ExplorePage() {
             {PRE_MADE_STORIES.map((story, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-out"
+                className="group relative bg-light rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transform  transition-all duration-100 ease-out max-w-lg mx-auto cursor-pointer w-full flex h-[280px] md:h-[350px] border-4 border-brown-primary md:border-0"
                 onClick={() => {
                   // open full set of pages without mutating original
                   const pages = PRE_MADE_STORIES[index].data.slice();
@@ -67,25 +67,25 @@ export default function ExplorePage() {
                   });
                 }}
               >
-                <div className="relative w-full h-72 overflow-hidden">
+                <div className="relative h-full w-1/2 flex-shrink-0 overflow-hidden bg-dark">
                   <Image
-                    src={story.data[0].image.replace(/^\.\.\//, "/")}
+                    src={story.data[0].image}
                     alt={story.title}
                     fill
-                    className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover transform transition-transform duration-100 w-full"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-6 flex flex-col gap-4">
-                  <h2 className="text-2xl font-medium text-brown-primary font-fredoka group-hover:text-brown-dark transition-colors duration-200">
+                <div className="absolute inset-0 group-hover:bg-gradient-to-t from-dark/20 via-dark/10 to-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:rotate-1 transform" />{" "}
+                <div className="flex-grow flex flex-col justify-between  gap-4 h-full">
+                  <h2 className="p-6 text-xl md:text-2xl font-medium text-brown-primary font-fredoka group-hover:text-brown-dark transition-colors duration-200">
                     {story.title.replace(/<\/?title>/g, "")}
                   </h2>
-                  <div className="flex justify-between items-center">
-                    <span className="inline-flex items-center gap-2 bg-brown-primary/10 text-brown-primary px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                  <div className="flex justify-between items-center gap-2 py-6 px-4 whitespace-nowrap">
+                    <span className="inline-flex items-center gap-2 bg-brown-primary/10 text-brown-primary px-3 py-2 rounded-full text-xs font-medium">
                       <DocumentTextIcon className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                       {story.data.length} Pages
                     </span>
-                    <button className="text-brown-primary hover:text-brown-dark transition-colors duration-200">
+                    <button className="text-brown-primary hover:text-brown-dark transition-colors duration-200 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
