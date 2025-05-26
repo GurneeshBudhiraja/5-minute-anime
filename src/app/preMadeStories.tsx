@@ -3,7 +3,7 @@
  */
 
 const PRE_MADE_STORIES: ExploreStories[] = [
-  // story 1
+  // story 1 - sky pirates
   {
     title: "<title>Sky Pirates: Quest for the Celestial Treasure</title>",
     data: [
@@ -82,13 +82,13 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       },
     ],
   },
-  // story2
+  // story2 - Nicola Tesla
   {
     title: "<title>Tesla: Lightning Master of Colorado Springs</title>",
     data: [
       {
         prompt: `<title>Tesla: Lightning Master of Colorado Springs</title>. Nikola Tesla standing boldly before his towering 50-foot Tesla coil, arcs of brilliant lightning crackling wildly around him under a stormy night sky in 1899 Colorado Springs; dramatic sparks illuminating the rugged mountain backdrop, intense determination in Tesla's eyes, rival inventors lurking in shadowy corners—science and drama collide in an epic battle for wireless electricity mastery. Ultra-detailed anime style, 4K cinematic lighting.`,
-        image: "/tesla/scene0.png",
+        image: "/electric-storm-tesla/scene0.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Nikola Tesla's Colorado Springs Experimental Station, May 1899, under a clear blue sky with a hint of excitement and anticipation. Characters: 
@@ -107,7 +107,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “WHOOSH!” (wind blowing through the open fields)
         Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
         `,
-        image: "/tesla/scene1.png",
+        image: "/electric-storm-tesla/scene1.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -128,7 +128,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “WHOOSH!” (wind through the fields)
         Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
         `,
-        image: "/tesla/scene2.png",
+        image: "/electric-storm-tesla/scene2.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Night at Tesla's Experimental Station; a fierce thunderstorm rages, massive artificial lightning bolts arcing from the towering Tesla coil into the dark sky. Sparks fly as Tesla and his assistants monitor instruments intensely.
@@ -145,7 +145,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
               • “CRACKLE-BOOM!” (lightning strike)
         • “ZZZZZZT!” (electric arcs buzzing)
         Atmosphere: Intense Shonen action with speed lines emphasizing raw electrical energy and high-stakes tension.`,
-        image: "/tesla/scene3.png",
+        image: "/electric-storm-tesla/scene3.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -163,7 +163,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “CRACKLE!” (lingering electricity)
         • “MURMUR…” (crowd voices)
         Atmosphere: Intense Shonen drama with dynamic paneling and expressive faces.`,
-        image: "/tesla/scene4.png",
+        image: "/electric-storm-tesla/scene4.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -183,7 +183,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “CRACKLE-BOOM!” (lightning strike)
         • “ZZZZZZT!” (electric buzz)
         Atmosphere: Intense Shonen action with dramatic speed lines and high stakes tension.`,
-        image: "/tesla/scene5.png",
+        image: "/electric-storm-tesla/scene5.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -205,7 +205,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “CREAK!” (door closing)
         • “WHOOSH!” (wind blowing)
         Atmosphere: Emotional Shonen drama with reflective pacing and expressive faces.`,
-        image: "/tesla/scene6.png",
+        image: "/electric-storm-tesla/scene6.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -226,18 +226,20 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “WHOOSH!” (wind)
         • “CREAK!” (door)
         Atmosphere: Emotional Shonen drama with hopeful forward momentum.`,
-        image: "/tesla/scene7.png",
+        image: "/electric-storm-tesla/scene7.png",
       },
     ],
   },
-  // story 3
+  // story 3 - tariff information
   {
     title: "<title>Tariff Tides: A Global Storm</title>",
     data: [
+      // cover letter
       {
         prompt: `<title>Tariff Tides: A Global Storm</title>. A dramatic anime-style cover featuring a split-screen backdrop of the US and China flags, with a stormy sea in between. In the foreground, two characters stand facing each other: a determined US trade official and a resolute Chinese diplomat. The sky is filled with ships and planes, symbolizing disrupted global trade. The title "Tariff Tides" is emblazoned across the top, while "A Global Storm" is written in smaller text at the bottom. The scene is set against a backdrop of intense lightning and turbulent waves, reflecting the turmoil of the tariff wars.`,
-        image: "/tariff-wars/scene0.png",
+        image: "/current-affairs/scene0.png",
       },
+      // scene 1
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
       Scene: A tense meeting room in Washington D.C., with world maps and economic charts on the walls, reflecting the global impact of tariffs.
@@ -256,8 +258,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “TAP” (pen hitting the table)
       • “WHOOSH” (papers being shuffled)
       Atmosphere: High-stakes political drama with a hint of historical context, inspired by the intense negotiations of real-world trade wars.`,
-        image: "/tariff-wars/scene1.png",
+        image: "/current-affairs/scene1.png",
       },
+      // scene 2
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, cinematic lighting with tense atmosphere
       Scene: A bustling global port city at dusk with cargo ships and cranes silhouetted against the skyline; news screens in the background show headlines about tariff hikes and economic fallout worldwide.
@@ -274,8 +277,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       Sound Effects:
       • “CLANK” (metal container doors closing)
       Atmosphere: Realistic slice-of-life drama highlighting human stories behind geopolitical conflicts; somber mood with subtle tension reflecting uncertainty in global trade due to tariff wars.`,
-        image: "/tariff-wars/scene2.png",
+        image: "/current-affairs/scene2.png",
       },
+      // scene 3
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
       Scene: A crowded press conference in Beijing, with international journalists and cameras flashing as Chinese officials address the media about the escalating tariff situation; the mood is tense and urgent.
@@ -297,8 +301,9 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “FLASH!” (camera flash)
       • “CLICK-CLICK!” (reporters typing on laptops)
       Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
-        image: "/tariff-wars/scene3.png",
+        image: "/current-affairs/scene3.png",
       },
+      // scene 4
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
       Scene: A packed international trade conference in Geneva, with world leaders and economists gathered to discuss the escalating tariff crisis; the mood is tense and urgent.
@@ -320,7 +325,7 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “CLICK-CLICK!” (reporters typing on laptops)
       • “FLASH!” (camera flash)
       Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
-        image: "/tariff-wars/scene4.png",
+        image: "/current-affairs/scene4.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces 
@@ -343,12 +348,158 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “CHEERS!” (crowd celebrating)
       • “CONFETTI POP!” (confetti bursting)
       Atmosphere: Heartwarming conclusion with a sense of global unity and cooperation, reflecting the power of diplomacy and mutual understanding in resolving conflicts.`,
-        image: "/tariff-wars/scene5.png",
+        image: "/current-affairs/scene5.png",
       },
     ],
   },
-  // story 4
-  
+  // story 4 - anime physics
+  {
+    title: "<title>Quantum Riders</title>",
+    data: [
+      {
+        prompt: `<title>Quantum Riders</title>. Students shrinking to the quantum scale, riding entangled photons amidst swirling particles, with superposition effects creating multiple versions of themselves in action-packed visuals - Anime style, 4K, vibrant colors, dynamic lighting.`,
+        image: "/anime-physics/scene0.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+      Scene: A high-tech science lab shrinks to a quantum world—students float among glowing particles and entangled photon beams. Mood is wonder and excitement.  
+      Characters:  
+      • Kaito: Curious teen with goggles pushed up on forehead; wears a futuristic jumpsuit; wide-eyed amazement.  
+      • Sora: Energetic girl with twin ponytails; dressed in a lab coat over shorts; determined grin.  
+      • Professor Yuki: Calm mentor with silver hair and glasses; smart suit; gentle smile.  
+
+      Panel Composition: Split-screen—left panel shows Kaito's face in close-up as he reaches for a photon beam (speed lines behind him); right panel is a wide shot of the group floating through swirling quantum particles (entangled photons crisscrossing the scene).  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “Whoa! We're really at the quantum scale? Everything looks… alive!”  
+      • Sora (bottom-right): “Check this out! I can see myself in two places at once—superposition is wild!”  
+      • Narration (bottom-center): “Shrunk to subatomic size, students experience quantum reality firsthand.”  
+      • Professor Yuki (mid-panel): “Remember—entanglement means what happens to one photon affects its partner instantly!”  
+
+      Sound Effects:  
+      • “ZAP!” (near entangled photons)  
+      • “WHOOSH!” (as students ride photon beams)  
+
+      Atmosphere: Thrilling discovery meets scientific awe—dynamic action lines and glowing particle effects fill every panel.`,
+        image: "/quantum-riders/scene1.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, vibrant colors, dynamic lighting  
+      Scene: Inside a dazzling quantum realm where Kaito and Sora ride glowing entangled photons through a maze of shimmering light paths. Mood is thrilling and energetic.  
+      Characters:  
+      • Kaito: Focused and exhilarated; gripping photon beam tightly; futuristic jumpsuit gleaming.  
+      • Sora: Excitedly pointing ahead; eyes sparkling with discovery; lab coat fluttering in quantum wind.  
+
+      Panel Composition: Wide-angle shot showing the two students riding parallel photon beams connected by glowing entanglement threads that pulse with energy; inset close-up of their hands touching the entanglement link as it glows brighter.  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “These photons are linked no matter how far apart—entanglement means instant connection!”  
+      • Sora (bottom-right): “It's like they share one fate! If something happens to one, the other knows immediately!”  
+      • Narration (bottom-center): “Quantum entanglement defies classical limits—particles remain mysteriously connected across space.”  
+      • Kaito (mid-panel): “Riding these entangled photons lets us experience this spooky action firsthand!”  
+
+      Sound Effects:  
+      • “ZING!” (along the glowing entanglement threads)  
+      • “WHOOSH!” (as they speed through quantum pathways)  
+
+      Atmosphere: High-energy adventure fused with awe-inspiring science visuals—light trails and particle effects emphasize instantaneous connections beyond normal physics boundaries.`,
+        image: "/quantum-riders/scene2.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+      Scene: Kaito and Sora find themselves split into multiple versions—each version glows with a different color as they stand before a shimmering double slit in the quantum realm. Mood is wonder and confusion.  
+      Characters:  
+      • Kaito: Multiple glowing versions of himself; each looks surprised but curious; futuristic jumpsuit shimmers with shifting colors.  
+      • Sora: Also split into several copies; some are pointing at the slits while others look around in awe; lab coat flutters as if caught in quantum wind.  
+
+      Panel Composition: Split-screen—left panel shows close-up of Kaito's face as he realizes he's in two places at once (superposition effect); right panel is a wide shot of all the students' copies standing before the glowing double slit (interference patterns visible behind them).  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “Whoa! I can see myself everywhere! Is this really happening?”  
+      • Sora (bottom-right): “It's superposition! We exist in multiple states until someone observes us!”  
+      • Narration (bottom-center): “At the quantum scale, particles can be in many places at once—like passing through both slits simultaneously.” [1][2][6]  
+      • Professor Yuki (mid-panel): “This is how quantum computers work—using superposition to process information faster than ever!”  
+
+      Sound Effects:  
+      • “GLOW!” (around each copy)  
+      • “ZAP!” (as interference patterns form)  
+
+      Atmosphere: Mind-bending discovery meets scientific thrill—dynamic action lines and glowing particle effects highlight every copy and their connection to the double slit experiment[1][2][3].`,
+        image: "/quantum-riders/scene3.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+      Scene: Kaito and Sora's multiple copies converge at a glowing quantum crossroads—entangled photon beams form a Yin-Yang pattern in the air above them. Mood is awe and revelation.  
+      Characters:  
+      • Kaito: Multiple versions merge into one; eyes wide with wonder; futuristic jumpsuit shimmers with residual superposition glow.  
+      • Sora: Copies also fuse back together; excitedly points at the Yin-Yang symbol forming in the sky; lab coat flutters as if caught in quantum wind.  
+
+      Panel Composition: Split-screen—left panel shows close-up of Kaito's face as he watches his copies merge (speed lines and glowing particles around him); right panel is a wide shot of all students gazing up at the massive entangled photon Yin-Yang symbol[1][4][6].  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “Whoa! My copies are merging… I feel whole again!”  
+      • Sora (bottom-right): “Look! The photons made a giant Yin-Yang! That's entanglement visualized!”[1][4]  
+      • Narration (bottom-center): “Quantum entanglement connects particles instantly—like two sides of one coin.”  
+      • Professor Yuki (mid-panel): “This is what Einstein called ‘spooky action at a distance.' Entanglement defies space itself!”[1][3]  
+
+      Sound Effects:  
+      • “GLOW!” (around merging copies)  
+      • “ZING!” (along entangled photon beams)  
+
+      Atmosphere: Mind-blowing scientific discovery meets anime spectacle—dynamic action lines and vibrant particle effects highlight every moment as students witness entanglement made visible for the first time[1][4].`,
+        image: "/quantum-riders/scene4.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+      Scene: Kaito and Sora stand at the heart of a glowing quantum circuit—entangled photon beams form a dazzling network around them as Professor Yuki explains the power of quantum computing. Mood is awe and determination.  
+      Characters:  
+      • Kaito: Eyes wide with excitement; futuristic jumpsuit glows with residual quantum energy; determined grin.  
+      • Sora: Hands on hips; lab coat flutters in the energy field; energetic smile.  
+      • Professor Yuki: Calm and wise; silver hair catches the light from the circuit; glasses reflect holographic data streams.  
+
+      Panel Composition: Split-screen—left panel shows close-up of Kaito's face as he reaches toward a glowing node (speed lines behind him); right panel is a wide shot of all three characters surrounded by swirling entangled photon circuits (Yin-Yang patterns visible in the background)[1][4].  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “So this is how quantum computers work? It's like riding entangled photons through every possible answer at once!”[1][3]  
+      • Sora (bottom-right): “Exactly! Superposition lets us process tons of data super fast—way faster than any normal computer!”[3]  
+      • Narration (bottom-center): “Quantum computers use entanglement and superposition to solve problems impossible for classical machines.” [1][3]  
+      • Professor Yuki (mid-panel): “And remember—every time you observe a result here, you collapse all those possibilities into one reality!”[1][2]  
+
+      Sound Effects:  
+      • “ZING!” (along entangled photon beams)  
+      • “GLOW!” (as nodes pulse with energy)  
+
+      Atmosphere: High-tech wonder meets anime action—dynamic action lines and vibrant particle effects highlight every moment as students grasp how quantum computing could change everything[1][4].`,
+        image: "/quantum-riders/scene5.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces  
+      Scene: Kaito and Sora return to the lab, now filled with excitement and newfound understanding of quantum physics—Professor Yuki stands proudly beside them as they gaze at a holographic display of their quantum journey. Mood is triumphant and reflective.  
+      Characters:  
+      • Kaito: Relieved smile; futuristic jumpsuit slightly worn from the adventure; eyes shining with excitement.  
+      • Sora: Energetic grin; lab coat fluttering as she gestures enthusiastically; ponytails bouncing with each movement.  
+      • Professor Yuki: Warm smile; silver hair glistening under lab lights; glasses reflecting holographic images.  
+
+      Panel Composition: Wide-angle shot of the lab with a holographic display projecting their quantum journey in the center—Kaito and Sora standing on either side of Professor Yuki, looking up at the hologram. Inset close-up of Kaito's face as he reflects on their adventure.  
+
+      Dialogue & Text:  
+      • Kaito (top-left): “We did it We experienced quantum entanglement firsthand!”  
+      • Sora (bottom-right): “And we learned so much about superposition and quantum computing!”  
+      • Narration (bottom-center): “Their journey through the quantum world has opened doors to new possibilities in science and technology.”  
+      • Professor Yuki (mid-panel): “This is just the beginning. With quantum computing, we can solve problems that were once impossible.”  
+      • Kaito (mid-right): “Imagine what we could achieve with quantum computers—curing diseases, solving climate change…”  
+      • Sora (top-right): “And it all starts with understanding entanglement and superposition!”  
+      • Professor Yuki (bottom-left): “The future is bright, and it's quantum.”  
+
+      Sound Effects:  
+      • “ZAP!” (as holographic images flicker)  
+      • “WHOOSH!” (as the hologram zooms in on key moments of their journey)  
+
+      Atmosphere: Triumphant conclusion with a sense of limitless possibility—dynamic action lines and vibrant particle effects highlight every moment as students reflect on their adventure and look toward a quantum future.`,
+        image: "/quantum-riders/scene6.png",
+      },
+    ],
+  },
 ];
 
 export default PRE_MADE_STORIES;
