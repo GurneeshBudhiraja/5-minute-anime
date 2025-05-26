@@ -82,84 +82,273 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       },
     ],
   },
+  // story2
   {
-    title: "<title>Sky Pirates: Quest for the Celestial Treasure</title>",
+    title: "<title>Tesla: Lightning Master of Colorado Springs</title>",
     data: [
       {
-        prompt: `<title>Sky Pirates: Quest for the Celestial Treasure</title>
-        masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
-        Scene: Captain Orion poised at the prow of his flagship under a star-streaked sky, floating isles illuminated by bioluminescent glow in the distance.
-        Characters:
-        • Captain Orion, resolute and charismatic, silhouette outlined by lantern glow.
-        • First Mate Luna, vigilant with a spyglass, wind-tousled hair and steampunk coat.
-        Panel Composition: Dramatic low-angle shot framing the ship cresting a sea of clouds, islands arching overhead.
-        Dialogue & Text: Title text (center, bold): "SKY PIRATES: QUEST FOR THE CELESTIAL TREASURE"
-        Sound Effects: Soft hum of engines ("VRRMMM") near the propellers.
-        Atmosphere: Epic and adventurous, with cool moonlit blues contrasted by warm lantern gold, evoking mystery and daring.`,
-        image: "/sky-pirates/scene0.png",
+        prompt: `<title>Tesla: Lightning Master of Colorado Springs</title>. Nikola Tesla standing boldly before his towering 50-foot Tesla coil, arcs of brilliant lightning crackling wildly around him under a stormy night sky in 1899 Colorado Springs; dramatic sparks illuminating the rugged mountain backdrop, intense determination in Tesla's eyes, rival inventors lurking in shadowy corners—science and drama collide in an epic battle for wireless electricity mastery. Ultra-detailed anime style, 4K cinematic lighting.`,
+        image: "/tesla/scene0.png",
       },
       {
-        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces.
-        Scene: Interior of the airship, crew members busy at their stations, with a large map of the floating islands spread out on a table, late afternoon with warm sunlight filtering through the windows.
-        Characters:
-        • Engineer Zephyr, focused and inventive, tinkering with a steam-powered device, wearing goggles and a leather apron.
-        • Navigator Astra, studious and determined, poring over the map, with a compass in hand and a look of concentration.
-        Panel Composition: Medium shot focusing on Zephyr's hands as they work, with Astra in the background studying the map, and the map's details visible on the table.
-        Dialogue & Text: Speech bubble (bottom-left): “We need to find the hidden passage!”
-        Sound Effects: “TICK-TOCK” (small text near Zephyr's device)
-        Atmosphere: Cozy with warm golden lighting, emphasizing teamwork and strategy.`,
-        image: "/sky-pirates/scene1.png",
-      },
-      {
-        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
-        Scene: A dramatic aerial battle high above the floating isles at dusk; two rival airships locked in fierce combat with cannon fire and billowing smoke.
-        Characters:
-        • Captain Orion, fierce and commanding on his ship's deck wielding a gleaming cutlass.
-        • Rival Captain Scarlett, ruthless and cunning aboard her vessel with a determined glare.
-        Panel Composition: Dynamic high-angle wide shot capturing both ships in mid-battle; explosions erupting between them with smoke trails drawing the eye across the frame.
-        Dialogue & Text: Speech bubble (top-center): “Take cover!”
-        Sound Effects: “BOOM!” (large impact text integrated into explosion clouds)
-        Atmosphere: Intense and chaotic with dark stormy clouds contrasted by fiery orange highlights from cannon blasts illuminating the scene.`,
-        image: "/sky-pirates/scene2.png",
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Nikola Tesla's Colorado Springs Experimental Station, May 1899, under a clear blue sky with a hint of excitement and anticipation. Characters: 
+        • Nikola Tesla: Tall, slender, with a determined look, wearing a suit and holding a notebook
+        • Joseph Dozier: Local carpenter, rugged attire, curious expression
+        • Leonard E. Curtis: Patent attorney, well-dressed, supportive smile
+        Panel Composition: Wide shot of the laboratory under construction (left) / close-up of Tesla explaining his plans (right)
+        Dialogue & Text:
+        • Tesla: “Imagine it, Joseph—wireless telegraphy from Pikes Peak to Paris!” (top-left bubble). • Dozier: “That sounds like magic, Mr. Tesla. How do you plan to make it happen?” (bottom-right bubble)
+        • Curtis: “Nikola, your work here could change the world. We're behind you all the way” (mid-panel bubble)
+        • Tesla: “Thank you, Leonard. I believe the thin air here will be perfect for my experiments” (top-right bubble)
+        • Dozier: “And what about the rumors of rival inventors trying to sabotage your work?” (bottom-left bubble)
+        • Tesla: “Let them try. I have the vision and the science on my side” (mid-panel bubble)
+        Sound Effects:
+        • “HAMMERING!” (construction in the background)
+        • “WHOOSH!” (wind blowing through the open fields)
+        Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
+        `,
+        image: "/tesla/scene1.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
-        Scene: The crew discovers a hidden treasure chamber deep within a floating island at twilight, filled with ancient artifacts and mysterious devices, with a soft ethereal glow.
+        Scene: Nikola Tesla's Colorado Springs Experimental Station, late afternoon, May 1899, with a sense of anticipation as Tesla prepares for his first major experiment.
         Characters:
-        • First Mate Luna, awestruck and curious, examining a glowing artifact with a look of wonder.
-        • Captain Orion, triumphant yet cautious, standing guard at the entrance with a watchful gaze.
-        Panel Composition: Low-angle shot focusing on Luna's amazed expression, with the treasure chamber's wonders in the background, and the soft glow of artifacts illuminating her face.
-        Dialogue & Text: Speech bubble (bottom-right): “This is it... the Celestial Treasure!”
-        Sound Effects: None
-        Atmosphere: Mystical with soft blue lighting, emphasizing discovery and wonder, and a sense of ancient magic lingering in the air.`,
-        image: "/sky-pirates/scene3.png",
+        • Nikola Tesla: Tall, slender, determined, holding a notebook
+        • Joseph Dozier: Local carpenter, rugged attire, curious expression
+        • Leonard E. Curtis: Patent attorney, supportive smile
+        • George Westinghouse: Businessman, observing from a distance, intrigued
+        Panel Composition: Split-screen: close-up of Tesla explaining his experiment (left) / wide shot of the lab with the massive Tesla coil in the background (right)
+        Dialogue & Text:. • Tesla: “Today, we will harness the power of the atmosphere itself. Watch closely!” (top-left bubble)
+        • Dozier: “But Mr. Tesla, isn't this dangerous? What if it gets out of control?” (bottom-left bubble)
+        • Curtis: “Nikola, your work could revolutionize communication. We're all rooting for you” (mid-panel bubble)
+        • Westinghouse: “I must admit, Tesla's ambition is impressive. But can he deliver?” (top-right bubble)
+        • Tesla: “The key is not just the technology, but understanding the Earth's resonance” (bottom-right bubble)
+        Sound Effects:
+        • “ZZZZT!” (electricity crackling)
+        • “WHOOSH!” (wind through the fields)
+        Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
+        `,
+        image: "/tesla/scene2.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Night at Tesla's Experimental Station; a fierce thunderstorm rages, massive artificial lightning bolts arcing from the towering Tesla coil into the dark sky. Sparks fly as Tesla and his assistants monitor instruments intensely.
+        Characters:
+        • Nikola Tesla: Exhilarated, soot-stained lab coat, wind-tousled hair
+        • Assistant #1: Young man adjusting dials, tense expression. • Assistant #2: Woman holding a clipboard, eyes wide with excitement
+              Panel Composition: Dynamic wide shot of the giant Tesla coil emitting enormous lightning arcs (center) / close-up on Tesla's determined face (top-right) / inset of assistants working frantically (bottom-left)
+              Dialogue & Text:
+        • Tesla: “This is it! Millions of volts—wireless energy unleashed!” (top-left bubble)
+              • Assistant #1: “The sparks are reaching over one hundred feet! Incredibl. (bottom-left bubble)
+              • Assistant #2: “Sir… what if this overloads the local grid?” (mid-panel bubble)
+              • Tesla: “Let them try to stop progress! We're rewriting physics tonight!” (top-right bubble)
+              Sound Effects:
+              • “CRACKLE-BOOM!” (lightning strike)
+        • “ZZZZZZT!” (electric arcs buzzing)
+        Atmosphere: Intense Shonen action with speed lines emphasizing raw electrical energy and high-stakes tension.`,
+        image: "/tesla/scene3.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
-        Scene: The crew celebrates their victory on the airship deck at sunset, with the floating islands fading into the distance, warm golden light casting long shadows.
-        Characters:
-        • Captain Orion, smiling and relieved, raising a glass in a toast with a hint of weariness.
-        • Engineer Zephyr, laughing and clinking glasses with Navigator Astra, both beaming with joy.
-        Panel Composition: Warm close-up shot focusing on the crew's joyful faces, with the setting sun casting a golden glow and the islands visible in the background.
-        Dialogue & Text: Speech bubble (top-center): “To new adventures!”
-        Sound Effects: “CLINK” (small text near the glasses)
-        Atmosphere: Heartwarming with soft orange hues and gentle shadows, capturing camaraderie and triumph.`,
-        image: "/sky-pirates/scene4.png",
+        Scene: Early morning after the storm—locals and rival inventors gather outside the lab fence as rumors spread.. Characters:
+        • Nikola Tesla: Exhausted but determined, singed lab coat
+        • Joseph Dozier: Protective stance by Tesla's side
+        • Leonard E. Curtis: Concerned but supportive
+        • Rival Inventor: Calculating smirk among the crowd
+        Panel Composition: Split-screen—close-up of Tesla and allies inside (left) / wide shot of curious townsfolk beyond the fence (right)
+        Dialogue & Text:
+        • Dozier: “They say you nearly burned down half the town!” (top-left bubble)
+        • Curtis: “Nikola… we could lose our free electricity deal.” (bottom-left bubble). • Narration: “Word spreads fast in a small town—especially when sparks fly.” (bottom-center box)
+        • Rival Inventor: “Let him play with lightning. He'll only prove me right when he fails.” (top-right bubble)
+        Sound Effects:
+        • “CRACKLE!” (lingering electricity)
+        • “MURMUR…” (crowd voices)
+        Atmosphere: Intense Shonen drama with dynamic paneling and expressive faces.`,
+        image: "/tesla/scene4.png",
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
-        Scene: Inside the airship's cozy common room at night; warm lantern light casts soft shadows over the crew gathered around a wooden table sharing stories and laughter.
+        Scene: Nighttime storm inside the lab; Tesla and assistants work by artificial lightning flashes.
         Characters:
-        • Captain Orion, relaxed and smiling warmly as he recounts their adventure.
-        • First Mate Luna and Engineer Zephyr listening intently with joyful expressions.
-        Panel Composition: Intimate medium shot focusing on the close-knit group seated in a semi-circle; flickering lantern light highlights their faces against the rich wood interior.
-        Dialogue & Text: Speech bubble (top-left): “We've earned this moment.”
-        Sound Effects: Soft crackle of fire (“CRACKLE”) near a small stove in the corner.
-        Atmosphere: Warm and nostalgic with amber tones creating a sense of camaraderie and peaceful reflection after their journey.`,
-        image: "/sky-pirates/scene5.png",
+        • Nikola Tesla: Intense focus, disheveled hair, soot-stained coat
+        • Assistant #1: Adjusting dials nervously
+        • Assistant #2: Clipboard in hand, eyes wide. • George Westinghouse: Observing from afar, intrigued
+        Panel Composition: Wide shot of the lab with lightning illuminating the room (center) / close-up on Tesla's face (top-right) / inset of assistants (bottom-left)
+        Dialogue & Text:
+        • Tesla: “This is the moment we harness Earth's power!” (top-left bubble)
+        • Assistant #1: “Sir, voltage is critical—are you sure?” (bottom-left bubble)
+        • Assistant #2: “Look—the bulbs outside glow without wires!” (mid-panel bubble)
+        • Westinghouse: “Tesla might just change the world.” (top-right bubble)
+        • Tesla: “We're rewriting the laws of physics!” (bottom-right bubble)
+        Sound Effects:
+        • “CRACKLE-BOOM!” (lightning strike)
+        • “ZZZZZZT!” (electric buzz)
+        Atmosphere: Intense Shonen action with dramatic speed lines and high stakes tension.`,
+        image: "/tesla/scene5.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
+        Scene: Late evening January 1900; Tesla packs to leave, a sense of accomplishment and melancholy fills the air.
+        Characters:
+        • Nikola Tesla: Reflective, hint of sadness, worn coat
+        • Joseph Dozier: Concerned carpenter
+        • Leonard E. Curtis: Supportive patent attorney
+        • George Westinghouse: Intrigued businessman
+        Panel Composition: Split-screen: close-up of Tesla packing (left) / wide shot of sil. Tesla coil station (right)
+        Dialogue & Text:
+        • Tesla: “It's time to leave, but my work will not be forgotten.” (top-left bubble)
+        • Dozier: “What will become of this place?” (bottom-left bubble)
+        • Curtis: “Your patents are secure—you'll change the world.” (mid-panel bubble)
+        • Westinghouse: “His vision is too grand to fail.” (top-right bubble)
+        • Tesla: “The real challenge begins now.” (bottom-right bubble)
+        • Narration: “As Tesla departs, his legacy in wireless power begins.” (bottom-center box)
+        Sound Effects:
+        • “CREAK!” (door closing)
+        • “WHOOSH!” (wind blowing)
+        Atmosphere: Emotional Shonen drama with reflective pacing and expressive faces.`,
+        image: "/tesla/scene6.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
+        Scene: Early morning January 1900; Tesla stands before his station, looking out to the horizon with resolve.
+        Characters:
+        • Nikola Tesla: Reflective, determined gaze
+        • Joseph Dozier: Concerned expression
+        • Leonard E. Curtis: Supportive smile
+        • George Westinghouse: Watching with admiration
+        Panel Composition: Split-screen: close-up of Tesla facing the landscape (left) / wide shot of the silent Tesla coil behind him (right)
+        Dialogue & Text:
+        • Tesla: “I may leave Colorado Springs, but my work will change history.” (top-left bubble)
+        • Dozier: “Will this place be remembered?” (bottom-left bubble)
+        • Curtis: “Your legacy is secure—world will soon know your genius.” (mid-panel bubble)
+        • Westinghouse: “His vision will not be ignored.” (top-right bubble)
+        • Tesla: “The journey to revolutionize the world has just begun.” (bottom-right bubble)
+        Sound Effects:
+        • “WHOOSH!” (wind)
+        • “CREAK!” (door)
+        Atmosphere: Emotional Shonen drama with hopeful forward momentum.`,
+        image: "/tesla/scene7.png",
       },
     ],
   },
+  // story 3
+  {
+    title: "<title>Tariff Tides: A Global Storm</title>",
+    data: [
+      {
+        prompt: `<title>Tariff Tides: A Global Storm</title>. A dramatic anime-style cover featuring a split-screen backdrop of the US and China flags, with a stormy sea in between. In the foreground, two characters stand facing each other: a determined US trade official and a resolute Chinese diplomat. The sky is filled with ships and planes, symbolizing disrupted global trade. The title "Tariff Tides" is emblazoned across the top, while "A Global Storm" is written in smaller text at the bottom. The scene is set against a backdrop of intense lightning and turbulent waves, reflecting the turmoil of the tariff wars.`,
+        image: "/tariff-wars/scene0.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
+      Scene: A tense meeting room in Washington D.C., with world maps and economic charts on the walls, reflecting the global impact of tariffs.
+      Characters:
+      • Alex Chen: A determined US trade official, wearing a sharp business suit, with a resolute expression.
+      • Liang Wong: A calm yet firm Chinese diplomat, dressed in a traditional suit, with a hint of a smile.
+      • Rachel Patel: A concerned international economist, wearing glasses and a professional outfit, with a worried look.
+      Panel Composition: Split-screen: close-up of Alex Chen's face (left) / wide shot of the meeting room with Liang Wong and Rachel Patel (right).
+      Dialogue & Text:
+      • Alex Chen: “We can't back down on these tariffs. It's a matter of national security and economic stability.” (top-left bubble)
+      • Liang Wong: “You're playing with fire, Alex. Retaliation will only hurt both our economies.” (bottom-right bubble)
+      • Rachel Patel: “I agree with Liang. The global market is already showing signs of strain.” (mid-panel bubble)
+      • Alex Chen: “We've studied the Smoot-Hawley Act. We know the risks, but we believe it's necessary this time.” (top-right bubble)
+      • Liang Wong: “History repeats itself, Alex. Protectionism never ends well.” (bottom-left bubble)
+      Sound Effects:
+      • “TAP” (pen hitting the table)
+      • “WHOOSH” (papers being shuffled)
+      Atmosphere: High-stakes political drama with a hint of historical context, inspired by the intense negotiations of real-world trade wars.`,
+        image: "/tariff-wars/scene1.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, cinematic lighting with tense atmosphere
+      Scene: A bustling global port city at dusk with cargo ships and cranes silhouetted against the skyline; news screens in the background show headlines about tariff hikes and economic fallout worldwide.
+      Characters:
+      • Maya Torres: A young logistics manager looking worried as she checks shipment data on a tablet.
+      • Kenji Saito: A seasoned dockworker discussing the impact of tariffs on his livelihood with Maya.
+      • News Reporter (on screen): Calm but urgent tone reporting rising tensions between trade powers.
+      Panel Composition: Wide shot focusing on Maya and Kenji in the foreground near shipping containers; inset close-up of news screen showing breaking headlines about tariff wars affecting global supply chains.
+      Dialogue & Text:
+      • Maya Torres: “These new tariffs are causing delays everywhere... our clients are losing trust.” (top-left bubble)
+      • Kenji Saito: “My family depends on this work—if imports slow down, so do our paychecks.” (bottom-right bubble)
+      • News Reporter (screen): “Tariff escalations threaten to disrupt markets globally...” (mid-panel bubble)
+      • Maya Torres: “It's not just numbers—it's real people caught in this crossfire.” (top-right bubble)
+      Sound Effects:
+      • “CLANK” (metal container doors closing)
+      Atmosphere: Realistic slice-of-life drama highlighting human stories behind geopolitical conflicts; somber mood with subtle tension reflecting uncertainty in global trade due to tariff wars.`,
+        image: "/tariff-wars/scene2.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
+      Scene: A crowded press conference in Beijing, with international journalists and cameras flashing as Chinese officials address the media about the escalating tariff situation; the mood is tense and urgent.
+      Characters:
+      • Liang Wong: The Chinese diplomat from the previous meeting, now standing confidently at the podium, addressing the press.
+      • Alex Chen: The US trade official, seated in the audience, looking determined but slightly uneasy.
+      • Rachel Patel: The international economist, standing near the back, observing the scene with a thoughtful expression.
+      • Journalist 1: A sharp, inquisitive reporter from CNN, microphone in hand, ready to ask a question.
+      • Journalist 2: A seasoned BBC correspondent, scribbling notes, preparing to follow up.
+      Panel Composition: Split-screen: close-up of Liang Wong at the podium (left) / wide shot of the press conference with Alex Chen and Rachel Patel in the audience (right).
+      Dialogue & Text:
+      • Liang Wong: “We will not back down. These tariffs are a necessary response to protect our industries.” (top-left bubble)
+      • Journalist 1: “But isn't this just a cycle of retaliation? How will it end?” (bottom-right bubble)
+      • Alex Chen: “We're not looking for a trade war, but we won't be bullied either.” (mid-panel bubble)
+      • Rachel Patel: “The global economy is already showing signs of strain. We need a resolution soon.” (top-right bubble)
+      • Journalist 2: “What about the impact on ordinary people? How will they be affected?” (bottom-left bubble)
+      • Liang Wong: “We understand the concerns, but our actions are to ensure long-term stability.” (mid-panel bubble)
+      Sound Effects:
+      • “FLASH!” (camera flash)
+      • “CLICK-CLICK!” (reporters typing on laptops)
+      Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
+        image: "/tariff-wars/scene3.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
+      Scene: A packed international trade conference in Geneva, with world leaders and economists gathered to discuss the escalating tariff crisis; the mood is tense and urgent.
+      Characters:
+      • Alex Chen: The determined US trade official, standing confidently at the podium, addressing the assembly.
+      • Liang Wong: The calm yet firm Chinese diplomat, seated in the front row, observing Alex with a thoughtful expression.
+      • Rachel Patel: The concerned international economist, standing near the back, taking notes and looking worried.
+      • European Union Representative: A seasoned diplomat from Brussels, nodding in agreement with Rachel's concerns.
+      • Journalist: A sharp, inquisitive reporter from Reuters, microphone in hand, ready to ask a question.
+      Panel Composition: Split-screen: close-up of Alex Chen at the podium (left) / wide shot of the conference hall with Liang Wong and Rachel Patel in the audience (right).
+      Dialogue & Text:
+      • Alex Chen: “We must stand firm on our tariffs. It's a matter of national security and economic sovereignty.” (top-left bubble)
+      • Liang Wong: “But at what cost? The global economy is on the brink of collapse.” (bottom-right bubble)
+      • Rachel Patel: “I agree with Liang. We need a multilateral approach to resolve this crisis.” (mid-panel bubble)
+      • European Union Representative: “We cannot afford to see the global supply chain disrupted further.” (top-right bubble)
+      • Journalist: “But isn't this just a game of chicken? Who will blink first?” (bottom-left bubble)
+      • Alex Chen: “We're not playing games; we're protecting our nation's future.” (mid-panel bubble)
+      Sound Effects:
+      • “CLICK-CLICK!” (reporters typing on laptops)
+      • “FLASH!” (camera flash)
+      Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
+        image: "/tariff-wars/scene4.png",
+      },
+      {
+        prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces 
+      Scene: A hopeful, bustling street in a global city, with people from different cultures coming together to celebrate a new era of international cooperation; the mood is optimistic and uplifting.
+      Characters:
+      • Alex Chen: The determined US trade official, now smiling warmly as he shakes hands with Liang Wong, symbolizing a new agreement.
+      • Liang Wong: The calm yet firm Chinese diplomat, also smiling, reflecting mutual respect and understanding.
+      • Rachel Patel: The concerned international economist, looking relieved and hopeful as she watches the scene unfold.
+      • Maya Torres: The young logistics manager, now smiling as she talks to Kenji Saito, both looking forward to a brighter future for global trade.
+      • Kenji Saito: The seasoned dockworker, nodding in agreement with Maya, his expression filled with renewed optimism.
+      Panel Composition: Wide shot focusing on Alex Chen and Liang Wong shaking hands in the foreground; inset close-up of Rachel Patel and Maya Torres in the background, both smiling.
+      Dialogue & Text:
+      • Alex Chen: “We did it, Liang. A new era of cooperation begins today.” (top-left bubble)
+      • Liang Wong: “Together, we can build a stronger global economy for all.” (bottom-right bubble)
+      • Rachel Patel: “This is just the start. We have a lot of work ahead to ensure stability.” (mid-panel bubble)
+      • Maya Torres: “I can already see the impact on our shipments. This is a new beginning.” (top-right bubble)
+      • Kenji Saito: “My family will finally have some peace of mind. Thank you, everyone.” (bottom-left bubble)
+      • Alex Chen: “We couldn't have done it without understanding and compromise.” (mid-panel bubble)
+      Sound Effects:
+      • “CHEERS!” (crowd celebrating)
+      • “CONFETTI POP!” (confetti bursting)
+      Atmosphere: Heartwarming conclusion with a sense of global unity and cooperation, reflecting the power of diplomacy and mutual understanding in resolving conflicts.`,
+        image: "/tariff-wars/scene5.png",
+      },
+    ],
+  },
+  // story 4
+  
 ];
 
 export default PRE_MADE_STORIES;

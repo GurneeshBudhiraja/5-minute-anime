@@ -10,7 +10,7 @@ export default function StoryResults() {
   const [mounted, setMounted] = useState<boolean>(false);
   const [storyDetails, setStoryDetails] = useState({
     topic: "",
-    pages: 5, // defaults to 6
+    pages: 5,
     info: "",
   });
   const [applicationStatus, setApplicationStatus] = useState<ApplicationStatus>(
@@ -24,9 +24,9 @@ export default function StoryResults() {
   >([]);
 
   const fetchStoryPage = async (currentPageToLoad: number) => {
-    if (currentPageToLoad > Number(params.get("pages"))) {
-      return;
-    }
+    // if (currentPageToLoad > Number(params.get("pages"))) {
+    //   return;
+    // }
 
     if (applicationStatus.aiGeneratedPages[currentPageToLoad]?.loaded) {
       return;
@@ -56,14 +56,12 @@ export default function StoryResults() {
           params.get("info")
             ? `Additional information: ${params.get("info")}`
             : ""
-        }. Generate the prompt for the cover page including the title`,
+        }. Generate the prompt for the cover page only including the title`,
       });
     } else {
       newChatHistory.push({
         role: "user",
-        content: `Generate the single scene prompt for the page number ${
-          currentPageToLoad + 1
-        } excluding the title`,
+        content: `Generate the single scene prompt for the page number ${currentPageToLoad} excluding the title`,
       });
     }
     setPerplexityChatHistory(newChatHistory);
@@ -132,7 +130,7 @@ export default function StoryResults() {
     const topic = params.get("topic");
     const pages = Number(params.get("pages"));
     const info = params.get("info") ?? "";
-    if (!topic || pages < 5 || pages > 7) {
+    if (!topic || pages < 5 || pages > 10) {
       router.push("/generate");
       return;
     }
@@ -202,7 +200,8 @@ export default function StoryResults() {
             }));
             fetchStoryPage(currentViewPage + 1);
           }}
-          disabled={currentViewPage === storyDetails.pages || !pageData?.loaded}
+          // disabled={currentViewPage === storyDetails.pages || !pageData?.loaded}
+          disabled={!pageData?.loaded}
           className="px-4 py-2 bg-brown-primary text-light rounded-full shadow hover:bg-brown-light disabled:opacity-50 transition"
         >
           Next
