@@ -3,11 +3,7 @@
 import BottomNav from "@/app/components/BottomNav";
 import LoadingStoryPageAnimation from "@/app/components/LoadingStoryPageAnimation";
 import LoadingTextAnimation from "@/app/components/LoadingTextAnimation";
-import {
-  FilmIcon,
-  FolderArrowDownIcon,
-  HomeIcon,
-} from "@heroicons/react/24/outline";
+import { FilmIcon, HomeIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -41,9 +37,6 @@ export default function StoryResults() {
   });
 
   const anyLoaded = applicationStatus.aiGeneratedPages.some(
-    (page) => page.loaded
-  );
-  const allLoaded = applicationStatus.aiGeneratedPages.every(
     (page) => page.loaded
   );
 
@@ -260,18 +253,6 @@ export default function StoryResults() {
           </div>
           {anyLoaded && (
             <div className="fixed bottom-10 sm:bottom-0 left-1/2 transform -translate-x-1/2 mb-8 flex gap-1.5 sm:gap-4 z-10 w-full justify-center flex-wrap">
-              {/* story download button */}
-              {allLoaded && (
-                <button
-                  className="bg-brown-secondary/90 text-light px-4 py-2 rounded-full cursor-pointer transition-transform hover:scale-105 text-center font-semibold shadow-lg border border-dark"
-                  onClick={() => {
-                    // TODO: implement download logic
-                  }}
-                >
-                  <FolderArrowDownIcon className="inline-block w-5 h-5 mr-2" />
-                  Download Story
-                </button>
-              )}
               {/* enter story mode */}
               <button
                 className="bg-brown-primary/90 text-light px-4 py-2 rounded-full cursor-pointer transition-transform hover:scale-105 text-center font-semibold shadow-lg border border-dark text-sm"
