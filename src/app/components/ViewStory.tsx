@@ -14,7 +14,6 @@ import {
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ViewStoryProps {
   viewStory: {
