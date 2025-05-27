@@ -174,8 +174,22 @@ interface ApplicationStatus {
  * Explore stories data
  */
 interface ExploreStoriesData {
+  /**
+   * Prompt used to generate the story page
+   */
   prompt: string;
+  /**
+   * Image to be rendered for the story page
+   */
   image: string;
+  /**
+   * Indicates whether the image for the next page is being generated
+   */
+  isLoaded?: boolean;
+  /**
+   * List of citations for the story page provided by Perplexity API
+   */
+  citations: Citation[];
 }
 
 /**

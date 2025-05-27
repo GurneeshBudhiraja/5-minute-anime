@@ -63,7 +63,11 @@ export default function ExplorePage() {
                   const pages = PRE_MADE_STORIES[index].data.slice();
                   setViewStory({
                     title: PRE_MADE_STORIES[index].title,
-                    data: pages,
+                    data: pages.map((page) => ({
+                      ...page,
+                      isLoaded: true,
+                      citations: [],
+                    })),
                   });
                 }}
               >

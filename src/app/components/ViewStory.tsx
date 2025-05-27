@@ -11,8 +11,10 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   InformationCircleIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ViewStoryProps {
   viewStory: {
@@ -30,9 +32,11 @@ interface ViewStoryProps {
 function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [showCitations, setShowCitations] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const promptRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLButtonElement>(null);
+  const citationsRef = useRef<HTMLButtonElement>(null);
 
   const handleScroll = () => {
     const container = containerRef.current;
@@ -44,6 +48,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
     setCurrentIndex(idx);
     setTimeout(() => {
       setShowPrompt(false);
+      setShowCitations(false);
     });
   };
 
@@ -58,35 +63,51 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
   const handlePrev = () => {
     const container = containerRef.current;
     if (!container) return;
-    const prevIndex = Math.max(currentIndex - 1, 0);
-    container.scrollTo({
-      left: prevIndex * container.clientWidth,
-      behavior: "smooth",
-    });
-    setCurrentIndex(prevIndex);
+
+    let prevIndex = currentIndex - 1;
+    while (prevIndex >= 0 && !viewStory.data[prevIndex].isLoaded) {
+      prevIndex--;
+    }
+    if (prevIndex >= 0) {
+      container.scrollTo({
+        left: prevIndex * container.clientWidth,
+        behavior: "smooth",
+      });
+      setCurrentIndex(prevIndex);
+    }
   };
 
   const handleNext = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    const nextIndex = Math.min(currentIndex + 1, viewStory.data.length - 1);
-    container.scrollTo({
-      left: nextIndex * container.clientWidth,
-      behavior: "smooth",
-    });
-    setCurrentIndex(nextIndex);
+    let nextIndex = currentIndex + 1;
+    while (
+      nextIndex < viewStory.data.length &&
+      !viewStory.data[nextIndex].isLoaded
+    ) {
+      nextIndex++;
+    }
+    if (nextIndex < viewStory.data.length) {
+      container.scrollTo({
+        left: nextIndex * container.clientWidth,
+        behavior: "smooth",
+      });
+      setCurrentIndex(nextIndex);
+    }
   };
 
   useEffect(() => {
     const handleBodyClick = (e: MouseEvent) => {
       if (
         promptRef.current?.contains(e.target as Node) ||
-        infoRef.current?.contains(e.target as Node)
+        infoRef.current?.contains(e.target as Node) ||
+        citationsRef.current?.contains(e.target as Node)
       ) {
         return;
       } else {
         setShowPrompt(false);
+        setShowCitations(false);
       }
     };
     document.querySelector("body")?.addEventListener("click", handleBodyClick);
@@ -95,6 +116,20 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
         .querySelector("body")
         ?.removeEventListener("click", handleBodyClick);
   }, []);
+
+  const hasPrevLoaded = (() => {
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      if (viewStory.data[i].isLoaded) return true;
+    }
+    return false;
+  })();
+
+  const hasNextLoaded = (() => {
+    for (let i = currentIndex + 1; i < viewStory.data.length; i++) {
+      if (viewStory.data[i].isLoaded) return true;
+    }
+    return false;
+  })();
 
   return (
     <div className="fixed inset-0 bg-dark/90 z-50 flex flex-col items-center justify-center p-2">
@@ -112,10 +147,28 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
           <XCircleIcon className="h-5 w-5 sm:h-6 sm:w-6 text-brown-primary" />
         </button>
 
+        {/* citation icon */}
+        {viewStory.data[currentIndex].citations?.length > 0 && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowPrompt(false);
+              setShowCitations(!showCitations);
+            }}
+            ref={citationsRef}
+            className="absolute bottom-4 right-16 p-2 bg-black/50 rounded-full z-30 hover:bg-black/60 transition border border-primary-blue/80"
+            title="Show citations"
+          >
+            <DocumentTextIcon className="h-5 w-5 text-primary-blue cursor-pointer" />
+          </button>
+        )}
+
+        {/* info icon */}
         <button
           ref={infoRef}
           onClick={(e) => {
             e.stopPropagation();
+            setShowCitations(false);
             setShowPrompt(!showPrompt);
           }}
           className="absolute bottom-4 right-4 p-2 bg-black/50 rounded-full z-30 hover:bg-black/60 transition border border-primary-blue/80"
@@ -143,15 +196,19 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
           {viewStory.data.map((item, idx) => (
             <div
               key={idx}
-              className="snap-center inline-block w-full h-full flex-shrink-0 relative mx-3"
+              className="snap-center w-full h-full flex-shrink-0 relative mx-3 flex items-center justify-center"
             >
-              <Image
-                src={item.image}
-                alt={`scene ${idx + 1}`}
-                fill
-                className="object-contain"
-                priority
-              />
+              {item.isLoaded ? (
+                <Image
+                  src={item.image}
+                  alt={`scene ${idx + 1}`}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              ) : (
+                <div className="loader-border-4 loader-border-light-primary rounded-full w-12 h-12 border-t-transparent animate-spin"></div>
+              )}
             </div>
           ))}
         </div>
@@ -160,6 +217,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
             className="absolute right-6 bottom-10 mb-4 max-w-[90%] max-h-32 text-light-primary font-semibold backdrop-blur-2xl p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue"
             ref={promptRef}
           >
+            {/* icon to show the Perplexity prompt */}
             <div className="text-sm sm:text-base mb-1 text-primary-blue">
               <span className="inline-flex items-center gap-1 bg-dark/50 px-2 py-1 rounded-full text-xs">
                 <InformationCircleIcon className="h-4 w-4 text-primary-blue" />
@@ -176,10 +234,40 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
             </div>
           </div>
         )}
+        {showCitations && (
+          <div
+            className="absolute right-16 bottom-10 mb-4 max-w-[80%] max-h-32 text-light-primary font-semibold backdrop-blur-2xl bg-dark/30 p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue"
+            ref={promptRef}
+          >
+            {/* icon to show the Perplexity citations */}
+            <div className="text-sm sm:text-base mb-1 text-primary-blue">
+              <span className="inline-flex items-center gap-1 bg-dark/50 px-2 py-1 rounded-full text-xs">
+                <InformationCircleIcon className="h-4 w-4 text-primary-blue" />
+                Perplexity Citations
+              </span>
+            </div>
+            <div className="mt-1 text-xs sm:text-sm">
+              <ol className="list-disc pl-5 text-primary-blue">
+                {viewStory.data[currentIndex].citations.map((citation, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={citation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-blue underline"
+                    >
+                      {citation}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        )}
         {/* Prev button */}
         <button
           onClick={handlePrev}
-          disabled={currentIndex === 0}
+          disabled={!hasPrevLoaded}
           className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/60 transition disabled:opacity-30 z-10 border border-light/30"
         >
           <ChevronLeftIcon className="h-6 w-6 text-white" />
@@ -187,7 +275,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
         {/* Next button */}
         <button
           onClick={handleNext}
-          disabled={currentIndex === viewStory.data.length - 1}
+          disabled={!hasNextLoaded}
           className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/60 transition disabled:opacity-30 z-10 border border-light/30"
         >
           <ChevronRightIcon className="h-6 w-6 text-white" />

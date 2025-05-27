@@ -6,7 +6,7 @@ interface LoadingAnimationProps {
   className?: string;
 }
 
-const LoadingAnimation = ({
+const LoadingStoryPageAnimation = ({
   size = "md",
   className = "",
 }: LoadingAnimationProps) => {
@@ -21,7 +21,7 @@ const LoadingAnimation = ({
 
   return (
     <div
-      className={`relative ${sizeClasses[size]} ${className} rounded-lg overflow-hidden bg-gradient-to-br from-light-secondary to-light-primary border-2 border-brown-primary`}
+      className={`relative ${sizeClasses[size]} ${className} rounded-lg overflow-hidden bg-gradient-to-br from-light-primary via-light-secondary to-light-secondary border-2 border-brown-primary/20`}
     >
       {/* grid pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -29,7 +29,7 @@ const LoadingAnimation = ({
           {pixels.map((pixel) => (
             <motion.div
               key={pixel}
-              className="border border-brown-secondary/40"
+              className="border border-brown-primary/20"
               initial={{ opacity: 0 }}
               animate={{
                 opacity: [0, 0.3, 0],
@@ -61,7 +61,7 @@ const LoadingAnimation = ({
             {/* morphing shape */}
             <motion.path
               d="M50,25 L75,50 L50,75 L25,50 Z"
-              fill="rgba(116, 75, 74, 0.4)"
+              fill="#704b4ac2"
               animate={{
                 d: [
                   "M50,25 L75,50 L50,75 L25,50 Z", // diamond
@@ -85,7 +85,7 @@ const LoadingAnimation = ({
               cx="50"
               cy="50"
               r="8"
-              fill="rgba(116, 75, 74, 0.6)"
+              fill="var(--primary-brown-secondary)"
               animate={{
                 r: [6, 12, 6],
                 opacity: [0.8, 0.3, 0.8],
@@ -105,7 +105,7 @@ const LoadingAnimation = ({
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-brown-secondary rounded-full"
+            className="absolute w-2 h-2 bg-brown-primary/60 rounded-full"
             style={{
               left: `${20 + i * 10}%`,
               top: `${15 + (i % 2) * 70}%`,
@@ -127,7 +127,7 @@ const LoadingAnimation = ({
 
       {/* scanning line effect - from top to bottom */}
       <motion.div
-        className="absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brown-secondary to-transparent opacity-60"
+        className="absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brown-primary to-transparent opacity-60"
         animate={{
           top: ["0%", "100%"],
         }}
@@ -155,9 +155,9 @@ const LoadingAnimation = ({
           animate={{
             scale: [0.8, 1.2, 0.8],
             borderColor: [
-              "rgba(116, 75, 74, 0.3)",
-              "rgba(116, 75, 74, 1)",
-              "rgba(116, 75, 74, 0.3)",
+              "var(--fun-brown-primary)/30",
+              "var(--fun-brown-primary)",
+              "var(--fun-brown-primary)/30",
             ],
           }}
           transition={{
@@ -183,11 +183,11 @@ const LoadingAnimation = ({
         }}
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(116, 75, 74, 0.2), transparent)",
+            "linear-gradient(90deg, transparent, var(--fun-brown-primary)/20, transparent)",
         }}
       />
     </div>
   );
 };
 
-export default LoadingAnimation;
+export default LoadingStoryPageAnimation;

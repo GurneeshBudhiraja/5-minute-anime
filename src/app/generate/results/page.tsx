@@ -1,9 +1,18 @@
 "use client";
 
-import LoadingAnimation from "@/app/components/LoadingAnimation";
+import BottomNav from "@/app/components/BottomNav";
+import LoadingStoryPageAnimation from "@/app/components/LoadingStoryPageAnimation";
+import LoadingTextAnimation from "@/app/components/LoadingTextAnimation";
+import {
+  FilmIcon,
+  FolderArrowDownIcon,
+  HomeIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import ViewStory from "@/app/components/ViewStory";
 
 export default function StoryResults() {
   const router = useRouter();
@@ -22,6 +31,29 @@ export default function StoryResults() {
       aiGeneratedPages: [],
     }
   );
+
+  const [viewStory, setViewStory] = useState<{
+    title: string;
+    data: ExploreStoriesData[];
+  }>({
+    title: "",
+    data: [],
+  });
+
+  const anyLoaded = applicationStatus.aiGeneratedPages.some(
+    (page) => page.loaded
+  );
+  const allLoaded = applicationStatus.aiGeneratedPages.every(
+    (page) => page.loaded
+  );
+
+  useEffect(() => {
+    if (viewStory.data.length > 0 && viewStory.title) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [viewStory]);
 
   useEffect(() => {
     if (!mounted) {
@@ -44,6 +76,7 @@ export default function StoryResults() {
         isLoading: true,
       } as StoryPage),
     }));
+    // return;
     // start fetching the story pages
     fetchStoryPage(0, []);
     // eslint-disable-next-line
@@ -65,10 +98,10 @@ export default function StoryResults() {
     if (applicationStatus.aiGeneratedPages[currentPageToLoad]?.isLoading) {
       return;
     }
-    if (currentPageToLoad > 1) {
-      console.log("Not processing page", currentPageToLoad);
-      return;
-    }
+    // if (currentPageToLoad > 1) {
+    //   console.log("Not processing page", currentPageToLoad);
+    //   return;
+    // }
 
     const newChatHistory = [...chatHistory];
     if (newChatHistory.length === 0) {
@@ -161,40 +194,119 @@ export default function StoryResults() {
   if (!mounted) return null;
 
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      <button
-        onClick={() => {
-          console.log(applicationStatus);
-        }}
-      >
-        click{" "}
-      </button>
-      {applicationStatus.aiGeneratedTitle && (
-        <>{applicationStatus.aiGeneratedTitle}</>
-      )}
-      {applicationStatus.aiGeneratedPages.length > 0 &&
-        applicationStatus.aiGeneratedPages.map(
-          (page: StoryPage, index: number) => {
-            return (
+    <div
+      className={`min-h-screen  bg-gradient-to-b from-light-primary to-light-secondary`}
+    >
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
+        {/* header - includes title */}
+        <main className="flex-1 py-8 flex flex-col">
+          <header className="relative flex items-center justify-center mb-8 sm:mb-12 overflow-visible">
+            <button
+              onClick={() => router.push("/")}
+              aria-label="Back to home"
+              className="hidden absolute sm:block  sm:left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/90 backdrop-blur rounded-full shadow-lg border-2 border-transparent hover:border-brown-primary hover:scale-105 transition-all duration-200 ease-out z-10 cursor-pointer"
+            >
+              <HomeIcon className="h-4 w-4 sm:h-6 md:w-6 text-brown-primary" />
+            </button>
+            <motion.h1
+              className="text-lg sm:text-4xl font-semibold tracking-wider md:tracking-wide text-brown-primary text-center mb-0 font-fredoka max-w-lg lg:max-w-5xl "
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, ease: "linear" }}
+            >
+              {applicationStatus.aiGeneratedTitle ? (
+                applicationStatus.aiGeneratedTitle
+              ) : (
+                <LoadingTextAnimation size="md" />
+              )}
+            </motion.h1>
+          </header>
+        </main>
+        <div className="relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-36">
+            {viewStory.data.length > 0 && (
+              <ViewStory
+                key={viewStory.data.length}
+                setViewStory={setViewStory}
+                viewStory={viewStory}
+              />
+            )}
+            {/* ai generated story pages */}
+            {applicationStatus.aiGeneratedPages.map((page, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md"
+                className="group relative rounded-2xl overflow-hidden shadow-md duration-100 ease-out max-w-lg mx-auto w-full h-[280px] md:h-[350px] border-4 border-brown-primary md:border-2 md:border-brown-primary/50 flex items-center justify-center"
               >
-                {page.isLoading ? (
-                  <LoadingAnimation size="lg" />
-                ) : (
+                {page.loaded && (
+                  <div
+                    className={`absolute top-3 right-3 w-fit h-fit flex items-center justify-center rounded-full shadow-lg text-sm font-bold py-1 px-3 text-light bg-dark border-2 border-light pointer-events-none`}
+                  >
+                    <>Page {index + 1}</>
+                  </div>
+                )}
+                {!page.isLoading ? (
                   <Image
                     src={page.image}
-                    alt={page.prompt}
-                    width={500}
-                    height={500}
-                    className="rounded-lg"
+                    alt={page.prompt.slice(0, 20)}
+                    width={200}
+                    height={300}
+                    className="object-cover w-full h-full"
                   />
+                ) : (
+                  <LoadingStoryPageAnimation size="lg" />
                 )}
               </div>
-            );
-          }
-        )}
-    </main>
+            ))}
+          </div>
+          {anyLoaded && (
+            <div className="fixed bottom-10 sm:bottom-0 left-1/2 transform -translate-x-1/2 mb-8 flex gap-1.5 sm:gap-4 z-10 w-full justify-center flex-wrap">
+              {/* story download button */}
+              {allLoaded && (
+                <button
+                  className="bg-brown-secondary/90 text-light px-4 py-2 rounded-full cursor-pointer transition-transform hover:scale-105 text-center font-semibold shadow-lg border border-dark"
+                  onClick={() => {
+                    // TODO: implement download logic
+                  }}
+                >
+                  <FolderArrowDownIcon className="inline-block w-5 h-5 mr-2" />
+                  Download Story
+                </button>
+              )}
+              {/* enter story mode */}
+              <button
+                className="bg-brown-primary/90 text-light px-4 py-2 rounded-full cursor-pointer transition-transform hover:scale-105 text-center font-semibold shadow-lg border border-dark text-sm"
+                onClick={() => {
+                  setViewStory({
+                    title: applicationStatus.aiGeneratedTitle,
+                    data: applicationStatus.aiGeneratedPages.map((page) =>
+                      page.loaded
+                        ? {
+                            image: page.image,
+                            prompt: page.prompt,
+                            citations: page.citations,
+                            isLoaded: true,
+                          }
+                        : {
+                            image: "",
+                            prompt: "",
+                            citations: [],
+                            isLoaded: false,
+                          }
+                    ),
+                  });
+                }}
+              >
+                <FilmIcon className="inline-block w-5 h-5 mr-2" />
+                Enter Story Mode
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <footer className="fixed bottom-0 left-0 w-full shadow-lg h-16">
+        <BottomNav />
+      </footer>
+    </div>
   );
 }
