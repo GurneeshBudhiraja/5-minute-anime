@@ -12,6 +12,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         prompt: `<title>The Rise of Perplexity AI</title>  
         Black pencil sketch style • Dynamic, energetic composition • Perplexity AI logo prominently featured in authentic form • Four founders depicted as spirited anime characters brainstorming around a glowing futuristic AI core • Background hints at digital data streams and cityscape skyline symbolizing innovation and growth • Anime style, 4K, dramatic shading and contrast`,
         image: "/perplexity-rise/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 1
       {
@@ -38,6 +40,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: High-energy shonen startup spirit with speed lines highlighting movement and innovation[1][2][5].`,
         image: "/perplexity-rise/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 2
       {
@@ -64,6 +68,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: High-energy startup spirit with speed lines highlighting movement and innovation[2][5].`,
         image: "/perplexity-rise/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 3
       {
@@ -90,6 +96,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Vibrant, celebratory mood with confetti and balloons, capturing the excitement of a new era in search technology[1][2].`,
         image: "/perplexity-rise/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 4
       {
@@ -116,6 +124,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Triumphant yet forward-looking mood with dynamic speed lines emphasizing rapid growth and innovation[1][2][3].`,
         image: "/perplexity-rise/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 5
       {
@@ -142,6 +152,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: High-energy startup spirit with speed lines highlighting rapid growth and innovation[2][3][5].`,
         image: "/perplexity-rise/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 6
       {
@@ -168,6 +180,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Vibrant, celebratory mood with confetti and balloons, capturing the excitement of achieving a new milestone in the AI search landscape[1][2].`,
         image: "/perplexity-rise/scene6.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 7
       {
@@ -194,6 +208,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Inspiring shonen finale mood with golden sunset light and speed lines highlighting limitless potential[1][2][5].`,
         image: "/perplexity-rise/scene7.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },
@@ -204,6 +220,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       {
         prompt: `<title>Tesla: Lightning Master of Colorado Springs</title>. Nikola Tesla standing boldly before his towering 50-foot Tesla coil, arcs of brilliant lightning crackling wildly around him under a stormy night sky in 1899 Colorado Springs; dramatic sparks illuminating the rugged mountain backdrop, intense determination in Tesla's eyes, rival inventors lurking in shadowy corners—science and drama collide in an epic battle for wireless electricity mastery. Ultra-detailed anime style, 4K cinematic lighting.`,
         image: "/electric-storm-tesla/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Nikola Tesla's Colorado Springs Experimental Station, May 1899, under a clear blue sky with a hint of excitement and anticipation. Characters: 
@@ -223,6 +241,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
         `,
         image: "/electric-storm-tesla/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -244,6 +264,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Atmosphere: Exciting Shonen adventure with dynamic action lines and a sense of pioneering spirit.
         `,
         image: "/electric-storm-tesla/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces. Scene: Night at Tesla's Experimental Station; a fierce thunderstorm rages, massive artificial lightning bolts arcing from the towering Tesla coil into the dark sky. Sparks fly as Tesla and his assistants monitor instruments intensely.
@@ -261,6 +283,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “ZZZZZZT!” (electric arcs buzzing)
         Atmosphere: Intense Shonen action with speed lines emphasizing raw electrical energy and high-stakes tension.`,
         image: "/electric-storm-tesla/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -279,6 +303,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “MURMUR…” (crowd voices)
         Atmosphere: Intense Shonen drama with dynamic paneling and expressive faces.`,
         image: "/electric-storm-tesla/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -299,6 +325,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “ZZZZZZT!” (electric buzz)
         Atmosphere: Intense Shonen action with dramatic speed lines and high stakes tension.`,
         image: "/electric-storm-tesla/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -321,6 +349,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “WHOOSH!” (wind blowing)
         Atmosphere: Emotional Shonen drama with reflective pacing and expressive faces.`,
         image: "/electric-storm-tesla/scene6.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -342,6 +372,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         • “CREAK!” (door)
         Atmosphere: Emotional Shonen drama with hopeful forward momentum.`,
         image: "/electric-storm-tesla/scene7.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },
@@ -353,6 +385,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       {
         prompt: `<title>Tariff Tides: A Global Storm</title>. A dramatic anime-style cover featuring a split-screen backdrop of the US and China flags, with a stormy sea in between. In the foreground, two characters stand facing each other: a determined US trade official and a resolute Chinese diplomat. The sky is filled with ships and planes, symbolizing disrupted global trade. The title "Tariff Tides" is emblazoned across the top, while "A Global Storm" is written in smaller text at the bottom. The scene is set against a backdrop of intense lightning and turbulent waves, reflecting the turmoil of the tariff wars.`,
         image: "/current-affairs/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 1
       {
@@ -374,6 +408,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “WHOOSH” (papers being shuffled)
       Atmosphere: High-stakes political drama with a hint of historical context, inspired by the intense negotiations of real-world trade wars.`,
         image: "/current-affairs/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 2
       {
@@ -393,6 +429,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “CLANK” (metal container doors closing)
       Atmosphere: Realistic slice-of-life drama highlighting human stories behind geopolitical conflicts; somber mood with subtle tension reflecting uncertainty in global trade due to tariff wars.`,
         image: "/current-affairs/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 3
       {
@@ -417,6 +455,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “CLICK-CLICK!” (reporters typing on laptops)
       Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
         image: "/current-affairs/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 4
       {
@@ -441,6 +481,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “FLASH!” (camera flash)
       Atmosphere: High-stakes international diplomacy with a sense of urgency and tension, reflecting the global implications of the tariff wars.`,
         image: "/current-affairs/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 5
       {
@@ -465,6 +507,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • “CONFETTI POP!” (confetti bursting)
       Atmosphere: Heartwarming conclusion with a sense of global unity and cooperation, reflecting the power of diplomacy and mutual understanding in resolving conflicts.`,
         image: "/current-affairs/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },
@@ -476,6 +520,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       {
         prompt: `<title>Quantum Riders</title>. Students shrinking to the quantum scale, riding entangled photons amidst swirling particles, with superposition effects creating multiple versions of themselves in action-packed visuals - Anime style, 4K, vibrant colors, dynamic lighting.`,
         image: "/anime-physics/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 1
       {
@@ -500,6 +546,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Atmosphere: Thrilling discovery meets scientific awe—dynamic action lines and glowing particle effects fill every panel.`,
         image: "/anime-physics/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 2
       {
@@ -523,6 +571,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Atmosphere: High-energy adventure fused with awe-inspiring science visuals—light trails and particle effects emphasize instantaneous connections beyond normal physics boundaries.`,
         image: "/anime-physics/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 3
       {
@@ -546,6 +596,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Atmosphere: Mind-bending discovery meets scientific thrill—dynamic action lines and glowing particle effects highlight every copy and their connection to the double slit experiment[1][2][3].`,
         image: "/anime-physics/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 4
       {
@@ -569,6 +621,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Atmosphere: Mind-blowing scientific discovery meets anime spectacle—dynamic action lines and vibrant particle effects highlight every moment as students witness entanglement made visible for the first time[1][4].`,
         image: "/anime-physics/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 5
       {
@@ -593,6 +647,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Atmosphere: High-tech wonder meets anime action—dynamic action lines and vibrant particle effects highlight every moment as students grasp how quantum computing could change everything[1][4].`,
         image: "/anime-physics/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 6
       {
@@ -602,6 +658,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
       • Kaito: Relieved smile; futuristic jumpsuit slightly worn from the adventure; eyes shining with excitement.  
       • Sora: Energetic grin; lab coat fluttering as she gestures enthusiastically; ponytails bouncing with each movement.  
       • Professor Yuki: Warm smile; silver hair glistening under lab lights; glasses reflecting holographic images.  
+      citations: [],
+      isLoaded: true,
 
       Panel Composition: Wide-angle shot of the lab with a holographic display projecting their quantum journey in the center—Kaito and Sora standing on either side of Professor Yuki, looking up at the hologram. Inset close-up of Kaito's face as he reflects on their adventure.  
 
@@ -616,10 +674,14 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
       Sound Effects:  
       • “ZAP!” (as holographic images flicker)  
+      citations: [],
+      isLoaded: true,
       • “WHOOSH!” (as the hologram zooms in on key moments of their journey)  
 
       Atmosphere: Triumphant conclusion with a sense of limitless possibility—dynamic action lines and vibrant particle effects highlight every moment as students reflect on their adventure and look toward a quantum future.`,
         image: "/anime-physics/scene6.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },
@@ -632,6 +694,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         prompt: `<title>Neon Ronin</title>
         In a cyber-feudal Japan, a neon-clad samurai stands atop a skyscraper, gazing out over a cityscape of holographic cherry blossoms and neon-lit alleys, as corporate ronin clash in the shadows below. Anime style, 4K, vibrant neon visuals.`,
         image: "/neon-ronin/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 1
       {
@@ -650,6 +714,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
           • “SHING!” (katana unsheathing) near Akira's hand  
         Atmosphere: Intense cyberpunk action mood infused with traditional samurai honor—vibrant neon colors contrasted against dark urban grit and flickering holograms`,
         image: "/neon-ronin/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 2
       {
@@ -674,6 +740,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Intense cyberpunk action mood infused with traditional samurai honor—vibrant neon colors contrasted against dark urban grit and flickering holograms.`,
         image: "/neon-ronin/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 3
       {
@@ -698,6 +766,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement.`,
         image: "/neon-ronin/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 4
       {
@@ -725,6 +795,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement.`,
         image: "/neon-ronin/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       // scene 5
       {
@@ -752,6 +824,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
 
         Atmosphere: Intense shonen-style action meets noir cyberpunk grit—speed lines highlight every move as neon reflections dance across wet pavement. The final confrontation unfolds with dramatic tension, setting the stage for a climactic conclusion.`,
         image: "/neon-ronin/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },
@@ -771,6 +845,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: Soft hum of engines ("VRRMMM") near the propellers.
         Atmosphere: Epic and adventurous, with cool moonlit blues contrasted by warm lantern gold, evoking mystery and daring.`,
         image: "/sky-pirates/scene0.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces.
@@ -783,6 +859,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: “TICK-TOCK” (small text near Zephyr's device)
         Atmosphere: Cozy with warm golden lighting, emphasizing teamwork and strategy.`,
         image: "/sky-pirates/scene1.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -795,6 +873,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: “BOOM!” (large impact text integrated into explosion clouds)
         Atmosphere: Intense and chaotic with dark stormy clouds contrasted by fiery orange highlights from cannon blasts illuminating the scene.`,
         image: "/sky-pirates/scene2.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -807,6 +887,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: None
         Atmosphere: Mystical with soft blue lighting, emphasizing discovery and wonder, and a sense of ancient magic lingering in the air.`,
         image: "/sky-pirates/scene3.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -819,6 +901,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: “CLINK” (small text near the glasses)
         Atmosphere: Heartwarming with soft orange hues and gentle shadows, capturing camaraderie and triumph.`,
         image: "/sky-pirates/scene4.png",
+        citations: [],
+        isLoaded: true,
       },
       {
         prompt: `masterpiece, best quality, ultra-detailed, anime style, 4K, dramatic lighting, expressive faces
@@ -831,6 +915,8 @@ const PRE_MADE_STORIES: ExploreStories[] = [
         Sound Effects: Soft crackle of fire (“CRACKLE”) near a small stove in the corner.
         Atmosphere: Warm and nostalgic with amber tones creating a sense of camaraderie and peaceful reflection after their journey.`,
         image: "/sky-pirates/scene5.png",
+        citations: [],
+        isLoaded: true,
       },
     ],
   },

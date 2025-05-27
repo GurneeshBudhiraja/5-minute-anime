@@ -65,8 +65,6 @@ export default function ExplorePage() {
                     title: PRE_MADE_STORIES[index].title,
                     data: pages.map((page) => ({
                       ...page,
-                      isLoaded: true,
-                      citations: [],
                     })),
                   });
                 }}
