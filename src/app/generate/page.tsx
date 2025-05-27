@@ -40,7 +40,7 @@ export default function GeneratePage() {
 
         {/* Page heading */}
         <h1 className="text-2xl md:text-4xl text-brown-primary font-extrabold text-center uppercase tracking-wider whitespace-nowrap">
-          Your Story Preferences
+          Your Anime Preferences
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

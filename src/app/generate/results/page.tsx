@@ -91,10 +91,6 @@ export default function StoryResults() {
     if (applicationStatus.aiGeneratedPages[currentPageToLoad]?.isLoading) {
       return;
     }
-    // if (currentPageToLoad > 1) {
-    //   console.log("Not processing page", currentPageToLoad);
-    //   return;
-    // }
 
     const newChatHistory = [...chatHistory];
     if (newChatHistory.length === 0) {
@@ -111,9 +107,7 @@ export default function StoryResults() {
       });
     }
 
-    // TODO: remove in prod
-    console.log("New chat history:");
-    console.log(newChatHistory);
+    
 
     // generate the prompt and the image
 
@@ -278,7 +272,7 @@ export default function StoryResults() {
                 }}
               >
                 <FilmIcon className="inline-block w-5 h-5 mr-2" />
-                Enter Story Mode
+                Enter Presentation Mode
               </button>
             </div>
           )}
