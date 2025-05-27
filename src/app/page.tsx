@@ -64,7 +64,7 @@ export default function Home() {
 
         {/* Login Modal */}
         {showLogin && (
-          <div className="fixed inset-0 flex items-center justify-center bg-dark/50 z-20">
+          <div className="fixed inset-0 flex items-center justify-center bg-dark/50 z-20 font-fredoka">
             <div className="relative bg-light-secondary p-6 rounded-2xl shadow-md w-full max-w-sm mx-2">
               <button
                 aria-label="Close"
@@ -116,7 +116,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-brown-primary text-light px-4 py-2 rounded-full hover:opacity-95 transition font-semibold disabled:opacity-70"
+                  className="bg-brown-primary text-light px-4 py-2 rounded-full hover:opacity-95 transition font-medium disabled:opacity-70 tracking-wider"
                 >
                   {loading ? "Logging in..." : "Login"}
                 </button>

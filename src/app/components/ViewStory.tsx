@@ -213,7 +213,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
         </div>
         {showPrompt && (
           <div
-            className="absolute right-6 bottom-10 mb-4 max-w-[90%] max-h-32 text-light-primary font-semibold backdrop-blur-2xl p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue"
+            className="absolute right-6 bottom-10 mb-4 max-w-[90%] max-h-32 text-light-primary font-semibold backdrop-filter backdrop-blur-xl p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue bg-black/60"
             ref={promptRef}
           >
             {/* icon to show the Perplexity prompt */}
@@ -235,7 +235,7 @@ function ViewStory({ viewStory, setViewStory }: ViewStoryProps) {
         )}
         {showCitations && (
           <div
-            className="absolute right-16 bottom-10 mb-4 max-w-[80%] max-h-32 text-light-primary font-semibold backdrop-blur-2xl bg-dark/30 p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue"
+            className="absolute right-16 bottom-10 mb-4 max-w-[80%] max-h-32 text-light-primary font-semibold backdrop-filter backdrop-blur-2xl bg-black/70 p-3 rounded z-20 overflow-auto break-words border-2 border-primary-blue"
             ref={promptRef}
           >
             {/* icon to show the Perplexity citations */}

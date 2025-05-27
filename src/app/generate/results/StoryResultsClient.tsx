@@ -117,10 +117,7 @@ export default function StoryResults() {
       body: JSON.stringify({
         messages: newChatHistory,
         generateImage: true,
-        // todo: uncomment this in prod
-        // model: newChatHistory.length === 1 ? "imagen" : "gpt-1",
-        // todo: remove this in prod
-        model: "imagen",
+        model: newChatHistory.length === 1 ? "imagen" : "gpt-1",
       }),
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -271,7 +268,7 @@ export default function StoryResults() {
                 }}
               >
                 <FilmIcon className="inline-block w-5 h-5 mr-2" />
-                Enter Story Mode
+                Enter Presentation Mode
               </button>
             </div>
           )}
