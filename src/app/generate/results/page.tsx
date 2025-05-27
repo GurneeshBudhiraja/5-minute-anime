@@ -111,16 +111,13 @@ export default function StoryResults() {
       });
     }
 
-    // TODO: remove in prod
-    console.log("New chat history:");
-    console.log(newChatHistory);
-
     // generate the prompt and the image
 
     const imagePromptResponse = await fetch("/api/v1/perplexity/image-prompt", {
       body: JSON.stringify({
         messages: newChatHistory,
         generateImage: true,
+        // todo: uncomment this in prod
         // model: newChatHistory.length === 1 ? "imagen" : "gpt-1",
         model: "imagen",
       }),
@@ -155,11 +152,6 @@ export default function StoryResults() {
     }
 
     newChatHistory.push({ role: "assistant", content: imagePrompt });
-
-    // TODO: remove in prod
-    console.log("newChatHistory");
-    console.log(newChatHistory);
-    console.log("aiGeneratedTitle");
 
     // updates the application status with the AI generated image and prompt
     setApplicationStatus((prev) => {
