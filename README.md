@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 5 Minute Anime
+
+Turn any topic into a 5-page anime adventure—learn history, science, news, or any subject in manga style.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repo
+git clone https://github.com/GurneeshBudhiraja/5-page-anime
+cd 5-page-anime
+
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next, create a `.env` file in the project root (or copy from `.env.example`) and add your API keys as shown below.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+# Perplexity API key
+# refer https://docs.perplexity.ai/guides/getting-started
+NEXT_PERPLEXITY_API=PERPLEXITY_API_KEY
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# OpenAI API key
+# refer https://platform.openai.com/api-keys
+NEXT_OPENAI_API=OPENAI_API_KEY
 
-## Learn More
+# Gemini API key
+# refer https://aistudio.google.com/
+NEXT_GEMINI_API_KEY=GEMINI_API_KEY
+```
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Run locally
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **System Prompting**  
+   The backend sends Sonar a prompt that combines your topic (and optional theme) with instructions to fetch source-backed facts and format them as a single storyboard panel.
 
-## Deploy on Vercel
+2. **Page-by-Page Generation**  
+   Sonar returns one narrative segment and its “image prompt” per request. We repeat this cycle for the specified number of pages to assemble the full story.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Image Synthesis**  
+   Each image prompt is sent to the AI model (Imagen + OpenAI GPT-1) to generate matching artwork.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Final Output**  
+   You get a complete, illustrated five-panel anime narrative—both entertaining **and** factually accurate.
+
+## 🔧 Built With
+
+- **Next.js** (React framework with API routes)
+- **Perplexity Sonar API** (source-grounded narrative generation)
+- **AI Image Model** (Imagen + OpenAI GPT-1)
