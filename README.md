@@ -18,24 +18,12 @@ Next, create a `.env` file in the project root (or copy from `.env.example`) and
 ```env
 # Perplexity API key
 # refer https://docs.perplexity.ai/guides/getting-started
-NEXT_PERPLEXITY_API="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"
 
 # OpenAI API key
 # refer https://platform.openai.com/api-keys
-NEXT_OPENAI_API="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"
 
 # Gemini API key
 # refer https://aistudio.google.com/
-NEXT_GEMINI_API_KEY="AIzaSyCfZy3V_JC5GaFcUuWVs2_gZXZNL_EbONs"
-```
-
-Copy the following demo keys into `.env` for immediate testing:
-
-```env
-# Demo API keys for testing (paste these into .env):
-NEXT_PERPLEXITY_API="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"
-NEXT_OPENAI_API="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"
-NEXT_GEMINI_API_KEY="AIzaSyCfZy3V_JC5GaFcUuWVs2_gZXZNL_EbONs"
 ```
 
 ```bash
